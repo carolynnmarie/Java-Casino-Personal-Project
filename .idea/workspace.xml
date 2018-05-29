@@ -128,6 +128,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -183,6 +186,7 @@
     <option name="width" value="1300" />
     <option name="height" value="777" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -336,12 +340,12 @@
       <workItem from="1527527137482" duration="12791000" />
       <workItem from="1527545195139" duration="127000" />
       <workItem from="1527545335096" duration="228000" />
-      <workItem from="1527545586686" duration="5575000" />
+      <workItem from="1527545586686" duration="5953000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21585000" />
+    <option name="totallyTimeSpent" value="21963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="45" y="23" width="1300" height="777" extended-state="0" />
@@ -364,7 +368,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.90588236" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2217806" />
