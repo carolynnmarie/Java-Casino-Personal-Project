@@ -34,8 +34,24 @@ public class Deck {
         return deck.remove(0);
     }
 
+    public Card seeCard(int index){return deck.get(index);}
+
+
+    public void shuffleDeck(){
+        Collections.shuffle(deck);
+    }
+
+    public boolean matches(Card card){
+        if(deck.contains(card)) return true;
+        return false;
+    }
+
     public void clearDeck(){
         deck.clear();
+    }
+
+    public Integer getDeckSize(){
+        return deck.size();
     }
 
     @Override

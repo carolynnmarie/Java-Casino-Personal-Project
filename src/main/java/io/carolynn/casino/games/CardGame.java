@@ -12,6 +12,11 @@ public abstract class CardGame extends Game {
     private Person dealer;
     private Deck houseDeck;
 
+    public CardGame(){
+        this.player = new Person();
+        this.dealer = new Person("Dealer");
+        this.houseDeck = new Deck();
+    }
 
     public CardGame(Person player){
         this.player = player;

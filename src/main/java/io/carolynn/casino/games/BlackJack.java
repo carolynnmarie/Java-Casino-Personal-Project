@@ -15,11 +15,13 @@ public class BlackJack extends CardGame{
     private int bet;
 
 
+
     public BlackJack(Person player) {
         super(player);
         this.dealer = new Person("Dealer");
         this.houseDeck = new Deck();
         this.bet = 0;
+
     }
 
     public void setBet(int bet){
@@ -152,6 +154,7 @@ public class BlackJack extends CardGame{
     public int getWinnings(){
         return (int)Math.round(bet * .5);
     }
+
     @Override
     public void end() {
         houseDeck = new Deck();
@@ -165,4 +168,5 @@ public class BlackJack extends CardGame{
             System.out.println("Thank you for playing BlackJack. You will now return to the main menu.");
         }
     }
+
 }
