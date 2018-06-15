@@ -17,7 +17,7 @@ public class BlackJack extends CardGame{
 
 
     public BlackJack(Person player) {
-        super(player);
+        this.player = player;
         this.dealer = new Person("Dealer");
         this.houseDeck = new Deck();
         this.bet = 0;
@@ -30,6 +30,12 @@ public class BlackJack extends CardGame{
     public int getBet(){
         return bet;
     }
+    public String getPlayerName(){
+        return  this.player.getName();
+    }
+    public Person getPlayer(){
+        return this.player;
+    }
 
 
 
@@ -39,7 +45,7 @@ public class BlackJack extends CardGame{
         Scanner input = new Scanner(System.in);
         int chips = 0;
         do {
-            System.out.println("Welcome to BlackJack. Please enter the number of chips for your starting bet");
+            System.out.println("Welcome to BlackJack, " + getPlayerName() + ". Please enter the number of chips for your starting bet");
             chips = input.nextInt();
             if (chips <= player.getChips()) {
                 setBet(chips);
@@ -74,7 +80,7 @@ public class BlackJack extends CardGame{
     }
 
     public int valueSum(Deck deck){
-        int cardValue = 0;
+        int cardValue;
         int totalValue = 0;
         int countAce = 0;
         for(Card card: deck.getDeck()){
@@ -91,7 +97,7 @@ public class BlackJack extends CardGame{
     public Deck playerTurn(Deck playerHand){
         Scanner scan = new Scanner(System.in);
         String answer = "";
-        int playerSum = valueSum(playerHand);
+        int playerSum = 0;
         do{
             System.out.println("Would you like to hit or stay? Press h for hit, any other key for stay");
             answer = scan.nextLine();
@@ -119,7 +125,7 @@ public class BlackJack extends CardGame{
             d ="Dealer gets BlackJack! You lose your bet of " + getBet();
         } else if(dealerSum>21) {
             d = "Dealer busts!  You win " + getWinnings() + " chips.";
-            player.setChips(player.getChips() + getWinnings());
+            player.addChips(getBet() + getWinnings());
         } else {
             d = "Dealer's cards value sum is " + dealerSum;
         }
@@ -133,6 +139,7 @@ public class BlackJack extends CardGame{
             bOrB = "Bust! Your total card value is " + handCount + ". You lost " + getBet() + " chips.";
         } else if (handCount == 21) {
             bOrB = "BlackJack!  You keep your bet amount and get " + getWinnings() + " more chips.";
+            getPlayer().addChips(getBet() + getWinnings());
         } else {
             bOrB = "Your total card value is " + handCount;
         }
@@ -144,7 +151,8 @@ public class BlackJack extends CardGame{
         if(playerCount == dealerCount){
             winner = "It's a tie! You keep the chips you bet\n";
         } else if(playerCount>dealerCount){
-            winner = "You won! You keep your bet and get " + getWinnings() + " more chips.\n";
+            winner = "Congratulations, " + getPlayerName() + "You won! You keep the chips you bet and get " + getWinnings() + " more chips.\n";
+            getPlayer().addChips(getBet() + getWinnings());
         } else {
             winner = "Dealer wins! You lost your bet of " + getBet() + " chips.\n";
         }

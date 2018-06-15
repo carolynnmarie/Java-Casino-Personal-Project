@@ -41,6 +41,15 @@ public class Deck {
         Collections.shuffle(deck);
     }
 
+    public String seeFullDeck(){
+        ArrayList<Card> deck2 = getDeck();
+        String deckString = "";
+        for(Card card: deck2){
+            deckString+= card.toString();
+        }
+        return deckString;
+    }
+
     public boolean matches(Card card){
         if(deck.contains(card)) return true;
         return false;

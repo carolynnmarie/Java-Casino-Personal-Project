@@ -28,6 +28,10 @@ public class Craps extends Game {
 
     }
 
+    public CrapsBetTypes getSpecificType(int index){
+        return betTypes[index];
+    }
+
     @Override
     public void start() {
 

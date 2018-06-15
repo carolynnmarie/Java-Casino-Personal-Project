@@ -21,18 +21,6 @@ public class Person {
         this.chips = 0;
     }
 
-    public Person(String name, Integer chips){
-        this.name = name;
-        this.chips = chips;
-    }
-
-    public void setChips(int chips){
-        this.chips = chips;
-    }
-    public int getChips(){
-        return chips;
-    }
-
     public void setName(String name){
         this.name = name;
     }
@@ -41,5 +29,16 @@ public class Person {
         return name;
     }
 
+    public void setChips(int chips){
+        this.chips = chips;
+    }
+
+    public int getChips(){
+        return chips;
+    }
+
+    public void addChips(int chips){
+        this.chips = getChips() + chips;
+    }
 
 }
