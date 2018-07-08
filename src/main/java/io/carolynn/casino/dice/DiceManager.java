@@ -39,6 +39,10 @@ public class DiceManager {
         return dice;
     }
 
+    public void setDice(Dice[] dice){
+        this.dice = dice;
+    }
+
     public Integer totalValue(){
         Integer total = 0;
         for(Dice die: dice){

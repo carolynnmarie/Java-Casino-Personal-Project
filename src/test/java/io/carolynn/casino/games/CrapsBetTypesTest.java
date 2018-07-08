@@ -10,7 +10,7 @@ public class CrapsBetTypesTest {
     public void betTypesTest(){
         Person person = new Person("Luis");
         Craps craps = new Craps(person);
-        CrapsBetTypes actual = craps.getSpecificType(1);
+        CrapsBetTypes actual = craps.getBetType(1);
         CrapsBetTypes expected = CrapsBetTypes.COME_BET;
         Assert.assertEquals(expected, actual);
     }
