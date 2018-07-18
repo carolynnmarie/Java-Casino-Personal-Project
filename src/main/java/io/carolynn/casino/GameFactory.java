@@ -1,6 +1,6 @@
 package io.carolynn.casino;
 
-import io.carolynn.casino.games.BlackJack;
+import io.carolynn.casino.games.cardGames.BlackJack;
 import io.carolynn.casino.games.Craps;
 import io.carolynn.casino.games.Game;
 

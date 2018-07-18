@@ -7,7 +7,7 @@ public class PersonTest {
 
     @Test
     public void defaultConstructorTest(){
-        Person person = new Person();
+        Person person = new Person("Carolynn");
         String expected = "Carolynn";
         person.setName("Carolynn");
         String actual = person.getName();

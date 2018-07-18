@@ -26,6 +26,10 @@ public class Deck {
         return this.deck;
     }
 
+    public void setDeck(ArrayList<Card> deck) {
+        this.deck = deck;
+    }
+
     public void addCard(Card card){
       deck.add(card);
     }
@@ -36,6 +40,14 @@ public class Deck {
 
     public Card seeCard(int index){return deck.get(index);}
 
+    public ArrayList<Card> dealHand(int numberOfCards){
+        ArrayList<Card> cards = new ArrayList<>();
+        for(int i = 0; i<numberOfCards; i++){
+            cards.add(deck.remove(i));
+            setDeck(deck);
+        }
+        return cards;
+    }
 
     public void shuffleDeck(){
         Collections.shuffle(deck);
@@ -61,6 +73,17 @@ public class Deck {
 
     public Integer getDeckSize(){
         return deck.size();
+    }
+
+    public ArrayList<Card> remove(ArrayList<Card> cards){
+        for(Card card: deck){
+            for(Card hand: cards){
+                if(card.getSuit().equals(hand.getSuit()) && card.getRank().equals(hand.getRank())){
+                    deck.remove(card);
+                }
+            }
+        }
+        return deck;
     }
 
     @Override

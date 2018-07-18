@@ -1,27 +1,22 @@
-package io.carolynn.casino.games;
+package io.carolynn.casino.games.cardGames;
 
 import io.carolynn.casino.Person;
 import io.carolynn.casino.cards.Card;
 import io.carolynn.casino.cards.Deck;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class BlackJack extends CardGame{
+public class BlackJack extends CardGame {
 
-    private Person player;
-    private Person dealer;
+
     private Deck houseDeck;
     private int bet;
 
 
-
     public BlackJack(Person player) {
-        this.player = player;
-        this.dealer = new Person("Dealer");
+        super(player);
         this.houseDeck = new Deck();
         this.bet = 0;
-
     }
 
     public void setBet(int bet){
@@ -30,15 +25,23 @@ public class BlackJack extends CardGame{
     public int getBet(){
         return bet;
     }
+
     public String getPlayerName(){
-        return  this.player.getName();
+        return  super.getPlayer().getName();
     }
     public Person getPlayer(){
-        return this.player;
+        return super.getPlayer();
     }
 
+    @Override
+    public Deck getHouseDeck() {
+        return houseDeck;
+    }
 
-
+    @Override
+    public void setHouseDeck(Deck houseDeck) {
+        this.houseDeck = houseDeck;
+    }
 
     @Override
     public void start() {
@@ -47,13 +50,13 @@ public class BlackJack extends CardGame{
         do {
             System.out.println("Welcome to BlackJack, " + getPlayerName() + ". Please enter the number of chips for your starting bet");
             chips = input.nextInt();
-            if (chips <= player.getChips()) {
+            if (chips <= getPlayer().getChips()) {
                 setBet(chips);
-                player.setChips(player.getChips()-chips);
+                getPlayer().setChips(getPlayer().getChips()-chips);
             } else {
-                System.out.println("Insufficient funds.  You currently have: " + player.getChips() + "Enter new amount");
+                System.out.println("Insufficient funds.  You currently have: " + getPlayer().getChips() + "Enter new amount");
             }
-        } while (chips > player.getChips());
+        } while (chips > getPlayer().getChips());
         runGame();
     }
 
@@ -102,7 +105,7 @@ public class BlackJack extends CardGame{
             System.out.println("Would you like to hit or stay? Press h for hit, any other key for stay");
             answer = scan.nextLine();
             if(answer.equalsIgnoreCase("h")){
-                playerHand.addCard(houseDeck.drawCard());
+                playerHand.addCard(getHouseDeck().drawCard());
                 playerSum = valueSum(playerHand);
                 System.out.println(bustOrBlackJack(playerSum));
             } else {
@@ -117,7 +120,7 @@ public class BlackJack extends CardGame{
         String d = "";
         while(dealerSum<16){
             System.out.println("Dealer's cards are: " + dealerHand.toString() + ". Dealer drawing a card.");
-            dealerHand.addCard(houseDeck.drawCard());
+            dealerHand.addCard(getHouseDeck().drawCard());
             System.out.println("Dealer's cards are now: " + dealerHand.toString());
             dealerSum = valueSum(dealerHand);
         }
@@ -125,7 +128,7 @@ public class BlackJack extends CardGame{
             d ="Dealer gets BlackJack! You lose your bet of " + getBet();
         } else if(dealerSum>21) {
             d = "Dealer busts!  You win " + getWinnings() + " chips.";
-            player.addChips(getBet() + getWinnings());
+            getPlayer().addChips(getBet() + getWinnings());
         } else {
             d = "Dealer's cards value sum is " + dealerSum;
         }
@@ -160,7 +163,7 @@ public class BlackJack extends CardGame{
     }
 
     public int getWinnings(){
-        return (int)Math.round(bet * .5);
+        return (int)Math.round(getBet() * .5);
     }
 
     @Override

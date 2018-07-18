@@ -5,6 +5,7 @@ import io.carolynn.casino.cards.Card;
 import io.carolynn.casino.cards.Deck;
 import io.carolynn.casino.cards.Rank;
 import io.carolynn.casino.cards.Suit;
+import io.carolynn.casino.games.cardGames.BlackJack;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
