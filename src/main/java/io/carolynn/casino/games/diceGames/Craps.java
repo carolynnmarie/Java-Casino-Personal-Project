@@ -1,7 +1,8 @@
-package io.carolynn.casino.games;
+package io.carolynn.casino.games.diceGames;
 
 import io.carolynn.casino.Person;
 import io.carolynn.casino.dice.DiceManager;
+import io.carolynn.casino.games.Game;
 
 import java.util.*;
 
@@ -20,10 +21,8 @@ public class Craps extends Game {
     private LinkedHashMap<String, HashMap<Integer, Integer>> pointsBets;
 
 
-
-
     public Craps(Person player){
-        this.player = player;
+        super(player);
         this.diceManager = new DiceManager(2);
         this.point = 0;
         this.diceValue = 0;

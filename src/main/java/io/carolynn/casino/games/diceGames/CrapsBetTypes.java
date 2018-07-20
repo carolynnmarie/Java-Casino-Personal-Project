@@ -1,4 +1,4 @@
-package io.carolynn.casino.games;
+package io.carolynn.casino.games.diceGames;
 
 public enum CrapsBetTypes {
     PASS_LINE_BET(1,1,"Pass Line Bet"),

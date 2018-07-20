@@ -74,12 +74,7 @@ public class GoFish extends CardGame {
         setPlayerHand();
         setDealerHand();
         System.out.println("**Welcome to Go Fish!**\nWhen choosing card enter 1 for Ace, 11 for Jack, 12 for Queen, 13 for King");
-        runGame();
-    }
-
-    @Override
-    public void runGame() {
-
+        userTurn();
     }
 
 
@@ -248,6 +243,9 @@ public class GoFish extends CardGame {
         }
         return stringHand; }
 
+    @Override
+    public void runGame() {
 
+    }
 }
 

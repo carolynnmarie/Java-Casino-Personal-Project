@@ -1,6 +1,8 @@
 package io.carolynn.casino.games;
 
 import io.carolynn.casino.Person;
+import io.carolynn.casino.games.diceGames.Craps;
+import io.carolynn.casino.games.diceGames.CrapsBetTypes;
 import org.junit.Assert;
 import org.junit.Test;
 

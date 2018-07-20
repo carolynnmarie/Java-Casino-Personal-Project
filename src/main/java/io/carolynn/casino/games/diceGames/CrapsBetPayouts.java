@@ -1,4 +1,4 @@
-package io.carolynn.casino.games;
+package io.carolynn.casino.games.diceGames;
 
 import java.util.HashMap;
 
