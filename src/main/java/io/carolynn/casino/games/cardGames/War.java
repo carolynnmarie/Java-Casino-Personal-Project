@@ -9,14 +9,12 @@ import java.util.Scanner;
 
 public class War extends CardGame {
 
-    private Person dealer;
     private Deck houseDeck;
     private ArrayList<Card> playerHand;
     private ArrayList<Card> dealerHand;
 
     public War(Person player){
         super(player);
-        this.dealer = new Person("Dealer");
         this.houseDeck = new Deck();
         this.playerHand = houseDeck.dealHand(26);
         this.dealerHand = houseDeck.getDeck();
@@ -47,14 +45,14 @@ public class War extends CardGame {
             Scanner scan = new Scanner(System.in);
             System.out.println("Welcome to WAR!\nEnter \"exit\" at any time to exit the game");
             answer = scan.nextLine();
-            runGame(getPlayerHand(),getDealerHand());
-        } while(!answer.equalsIgnoreCase("exit") || !checkIfEitherAreEmpty(getPlayerHand(), getDealerHand()));
-        declareWinner(getPlayerHand(), getDealerHand());
+            runGame();
+        } while(!answer.equalsIgnoreCase("exit") || !checkIfEitherAreEmpty(playerHand, dealerHand));
+        declareWinner();
         end();
     }
 
 
-    public void runGame(ArrayList<Card> playerHand, ArrayList<Card> dealerHand) {
+    public void runGame() {
             while (checkIfEitherAreEmpty(playerHand, dealerHand)) {
                 Card playerCard = playerHand.remove(0);
                 Card dealerCard = dealerHand.remove(0);
@@ -126,26 +124,22 @@ public class War extends CardGame {
     }
 
 
-    public String declareWinner(ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
+    public void declareWinner(){
         String winner = "And the winner is ";
         winner += (playerHand.size() < dealerHand.size())? "the dealer!": super.getPlayer().getName();
-        return winner;
+        System.out.println(winner);
     }
 
     public void end() {
         Scanner input = new Scanner(System.in);
-        super.getPlayer().getHand().clear();
-        dealer.getHand().clear();
+        playerHand.clear();
+        playerHand.clear();
         System.out.println("If you want to play again, enter 'yes', or enter anything else to return to the casino");;
         if (input.nextLine().equalsIgnoreCase("yes")) {
             start();
         }
     }
 
-    @Override
-    public void runGame() {
-
-    }
 
 }
 
