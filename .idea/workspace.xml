@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="943598cc-701a-4e97-8faf-9ab35b72208f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java" afterDir="false" />
     </list>
@@ -43,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="War.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="War.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-974">
-              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+            <state relative-caret-position="937">
+              <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -55,15 +54,27 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GoFish.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GoFish.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="199" column="12" lean-forward="true" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
+            <state relative-caret-position="238">
+              <caret line="156" column="22" selection-start-line="156" selection-start-column="22" selection-end-line="156" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9168#9169#0" expanded="true" />
-                <element signature="e#9202#9203#0" expanded="true" />
+                <element signature="e#1353#1354#0" expanded="true" />
+                <element signature="e#1377#1378#0" expanded="true" />
+                <element signature="e#1537#1538#0" expanded="true" />
+                <element signature="e#1581#1582#0" expanded="true" />
+                <element signature="e#1669#1670#0" expanded="true" />
+                <element signature="e#1702#1703#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1795#1796#0" expanded="true" />
+                <element signature="e#1829#1830#0" expanded="true" />
+                <element signature="e#1862#1863#0" expanded="true" />
+                <element signature="e#1911#1912#0" expanded="true" />
+                <element signature="e#1955#1956#0" expanded="true" />
+                <element signature="e#9965#9966#0" expanded="true" />
+                <element signature="e#9999#10000#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -193,8 +204,8 @@
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/GameFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/Craps.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/Game.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java" />
       </list>
     </option>
   </component>
@@ -233,7 +244,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="37" />
     <option name="y" value="23" />
-    <option name="width" value="1324" />
+    <option name="width" value="1370" />
     <option name="height" value="809" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -585,7 +596,7 @@
       <workItem from="1531934645500" duration="236000" />
       <workItem from="1531938501160" duration="1257000" />
       <workItem from="1532105040249" duration="672000" />
-      <workItem from="1532187720180" duration="3775000" />
+      <workItem from="1532187720180" duration="10264000" />
     </task>
     <servers />
   </component>
@@ -622,10 +633,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100355000" />
+    <option name="totallyTimeSpent" value="106844000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="37" y="23" width="1324" height="809" extended-state="0" />
+    <frame x="37" y="23" width="1370" height="809" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -648,10 +659,10 @@
       <window_info anchor="bottom" id="Run" order="3" weight="0.3244382" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.28651685" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22698908" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21912651" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32917318" />
       <window_info id="Web" order="6" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Find" order="2" visible="true" weight="0.3286517" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3286517" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -1000,24 +1011,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-974">
-          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+        <state relative-caret-position="238">
+          <caret line="156" column="22" selection-start-line="156" selection-start-column="22" selection-end-line="156" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1377#1378#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1669#1670#0" expanded="true" />
+            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1795#1796#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="e#1862#1863#0" expanded="true" />
+            <element signature="e#1911#1912#0" expanded="true" />
+            <element signature="e#1955#1956#0" expanded="true" />
+            <element signature="e#9965#9966#0" expanded="true" />
+            <element signature="e#9999#10000#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="199" column="12" lean-forward="true" selection-start-line="199" selection-start-column="12" selection-end-line="199" selection-end-column="12" />
+        <state relative-caret-position="937">
+          <caret line="105" column="5" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9168#9169#0" expanded="true" />
-            <element signature="e#9202#9203#0" expanded="true" />
           </folding>
         </state>
       </provider>

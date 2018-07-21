@@ -57,18 +57,16 @@ public class GoFish extends CardGame {
         return playerHand;
     }
 
-    public void setPlayerHand() {
-        player.setHand(houseDeck.dealHand(7));
-        this.playerHand = player.getHand();
+    public void setPlayerHand(ArrayList<Card> playerHand) {
+        this.playerHand = playerHand;
     }
 
     public ArrayList<Card> getDealerHand() {
         return dealerHand;
     }
 
-    public void setDealerHand() {
-        dealer.setHand(houseDeck.dealHand(7));
-        this.dealerHand = dealer.getHand();
+    public void setDealerHand(ArrayList<Card> dealerHand) {
+        this.dealerHand = dealerHand;
     }
 
     public int getPlayerBook() {
@@ -89,11 +87,10 @@ public class GoFish extends CardGame {
 
     @Override
     public void start() {
-        setPlayerHand();
-        setDealerHand();
+        playerHand = houseDeck.dealHand(7);
+        dealerHand = houseDeck.dealHand(7);
         System.out.println("**Welcome to Go Fish!**\nWhen choosing card enter 1 for Ace, 11 for Jack, 12 for Queen, 13 for King");
         runGame();
-
     }
 
     @Override
@@ -102,6 +99,8 @@ public class GoFish extends CardGame {
             userTurn();
             dealerTurn();
         } while(houseDeck.getDeckSize()>0 && playerHand.size()>0 && dealerHand.size()>0);
+        whoWonTheGame();
+        end();
     }
 
     public void userTurn(){
@@ -210,12 +209,12 @@ public class GoFish extends CardGame {
         }
     }
 
-    public void handCountCheck(ArrayList<Card> person, ArrayList<Card> dealer){
-        if (houseDeck.getDeckSize() == 0 || checkNumberOfCards(person) == 0 || checkNumberOfCards(dealer)==0){
-            System.out.println("Out of cards!");
-            whoWonTheGame();
-        }
-    }
+//    public void handCountCheck(ArrayList<Card> person, ArrayList<Card> dealer){
+//        if (houseDeck.getDeckSize() == 0 || checkNumberOfCards(person) == 0 || checkNumberOfCards(dealer)==0){
+//            System.out.println("Out of cards!");
+//            whoWonTheGame();
+//        }
+//    }
 
     public void whoWonTheGame(){
         if (playerBook > dealerBook){
@@ -233,14 +232,9 @@ public class GoFish extends CardGame {
                     "                 You had a Book Score of " + playerBook + "!\n"+
                     "*************************  You Lost!  *************************\n");
         }
-        end();
     }
 
     public void end() {
-        player.setBook(0);
-        dealer.setBook(0);
-        playerHand.clear();
-        dealerHand.clear();
         Scanner anotherRoundScanner = new Scanner(System.in);
         System.out.println("Play another round? yes or no...");
         if (anotherRoundScanner.nextLine().equalsIgnoreCase("yes")) {
