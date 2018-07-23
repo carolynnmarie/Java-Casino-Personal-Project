@@ -1,15 +1,24 @@
 package io.carolynn.casino.cards;
 
 public enum Suit {
-    CLUBS("clubs"), DIAMONDS("diamonds"), SPADES("spades"), HEARTS("hearts");
+    CLUBS("clubs","\u2663"),
+    DIAMONDS("diamonds", "\u2666"),
+    SPADES("spades", "\u2665"),
+    HEARTS("hearts", "\u2665");
 
-    final String suit;
+    final String suitWord;
+    final String suitSymbol;
 
-    Suit(String suit){
-        this.suit= suit;
+    Suit(String suitWord, String suitSymbol){
+        this.suitWord= suitWord;
+        this.suitSymbol = suitSymbol;
     }
 
-    public String getSuit(){
-        return this.suit;
+    public String getSuitWord(){
+        return this.suitWord;
+    }
+
+    public String getSuitSymbol(){
+        return this.suitSymbol;
     }
 }

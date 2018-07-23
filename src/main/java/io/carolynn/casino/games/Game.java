@@ -8,6 +8,9 @@ public abstract class Game {
     private Person player;
     private Person dealer;
 
+    public Game(){
+
+    }
 
     public Game(Person player){
         this.player = player;

@@ -9,7 +9,7 @@ public class SuitTest {
     public void suitTest(){
         String expected = "hearts";
         Card card = new Card(Rank.QUEEN, Suit.HEARTS);
-        String actual = card.getSuit();
+        String actual = card.getSuitWord();
         Assert.assertEquals(expected, actual);
     }
 }

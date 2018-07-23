@@ -78,7 +78,7 @@ public class Deck {
     public ArrayList<Card> remove(ArrayList<Card> cards){
         for(Card card: deck){
             for(Card hand: cards){
-                if(card.getSuit().equals(hand.getSuit()) && card.getRank().equals(hand.getRank())){
+                if(card.getSuitWord().equals(hand.getSuitWord()) && card.getRank().equals(hand.getRank())){
                     deck.remove(card);
                 }
             }

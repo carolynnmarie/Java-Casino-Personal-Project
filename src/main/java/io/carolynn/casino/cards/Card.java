@@ -22,9 +22,11 @@ public class Card {
         }
 
 
-    public String getSuit(){
-        return suit.getSuit();
+    public String getSuitWord(){
+        return suit.getSuitWord();
     }
+
+    public String getSuitSymbol(){ return suit.getSuitSymbol();}
 
     public Integer getRank(){
         return rank.rankValue();
@@ -32,6 +34,6 @@ public class Card {
 
     @Override
     public String toString(){
-        return rank.rankName() + " of " + suit.getSuit();
+        return rank.rankName() + suit.getSuitSymbol();
     }
 }

@@ -19,7 +19,7 @@ public class CardTest {
         suit = HEARTS;
         card = new Card(rank, suit);
         String expected = "hearts";
-        String actual = card.getSuit();
+        String actual = card.getSuitWord();
         Assert.assertEquals(expected, actual);
     }
 
