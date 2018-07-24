@@ -85,21 +85,6 @@ public class BlackJack extends CardGame {
         end();
     }
 
-    public int valueSum(Deck deck){
-        int cardValue;
-        int totalValue = 0;
-        int countAce = 0;
-        for(Card card: deck.getDeck()){
-            cardValue = card.getRank()==11? 10: card.getRank()==12? 10: card.getRank()==13? 10: card.getRank();
-            totalValue += cardValue;
-            if(card.getRank()==1) countAce++;
-        }
-        if(countAce==1 && totalValue<=11){
-            totalValue+=10;
-        }
-        return totalValue;
-    }
-
     public Deck playerTurn(Deck playerHand){
         Scanner scan = new Scanner(System.in);
         String answer = "";
@@ -108,7 +93,9 @@ public class BlackJack extends CardGame {
             System.out.println("Would you like to hit or stay? Press h for hit, any other key for stay");
             answer = scan.nextLine();
             if(answer.equalsIgnoreCase("h")){
-                playerHand.addCard(getHouseDeck().drawCard());
+                Card card = getHouseDeck().drawCard();
+                System.out.println("You drew a " + card.toString());
+                playerHand.addCard(card);
                 playerSum = valueSum(playerHand);
                 System.out.println(bustOrBlackJack(playerSum));
             } else {
@@ -136,7 +123,20 @@ public class BlackJack extends CardGame {
         dealerBustOrBlackJack(dealerSum);
         return dealerHand;
     }
-
+    public int valueSum(Deck deck){
+        int cardValue;
+        int totalValue = 0;
+        int countAce = 0;
+        for(Card card: deck.getDeck()){
+            cardValue = card.getRank()==11? 10: card.getRank()==12? 10: card.getRank()==13? 10: card.getRank();
+            totalValue += cardValue;
+            if(card.getRank()==1) countAce++;
+        }
+        if(countAce==1 && totalValue<=11){
+            totalValue+=10;
+        }
+        return totalValue;
+    }
     private void dealerBustOrBlackJack(int dealerSum){
         String d = "";
         if(dealerSum==21){
@@ -193,6 +193,13 @@ public class BlackJack extends CardGame {
         }else {
             System.out.println("Thank you for playing BlackJack. You will now return to the main menu.");
         }
+    }
+
+    public static void main(String[] args){
+        Person person = new Person("Carolynn");
+        person.setChips(200);
+        BlackJack blackJack = new BlackJack(person);
+        blackJack.start();
     }
 
 }

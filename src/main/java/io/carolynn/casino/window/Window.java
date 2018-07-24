@@ -21,16 +21,16 @@ public class Window{
         contentPane.add(jPanel);
         contentPane.setVisible(true);
         jFrame.setVisible(true);
-        jFrame.setBackground(Color.WHITE);
-
+        jFrame.setDefaultCloseOperation(jFrame.EXIT_ON_CLOSE);
     }
 
-    public void setTitle(String title){
+    public void setTitle(String title) {
         jFrame.setTitle(title);
-        jPanel.setBackground(Color.WHITE);
     }
 
-
+    public void setBackground(){
+        jFrame.setBackground(Color.WHITE);
+    }
 
     //    Toolkit toolkit;
 //    Dimension screenSize;

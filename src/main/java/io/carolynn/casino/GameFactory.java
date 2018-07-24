@@ -10,13 +10,13 @@ public class GameFactory {
 
     public static Game goToGame(String gameChoice, Person person){
         Game game;
-        if(gameChoice.equalsIgnoreCase("blackjack")) {
+        if(gameChoice.equals("blackjack")) {
             game = new BlackJack(person);
-        } else if(gameChoice.equalsIgnoreCase("craps")) {
-            game = new Craps(person);
-        } else if(gameChoice.equalsIgnoreCase("go fish")) {
+//        } else if(gameChoice.equals("craps")) {
+//            game = new Craps(person);
+        } else if(gameChoice.equals("go fish")) {
             game = new GoFish(person);
-        } else if(gameChoice.equalsIgnoreCase("war")){
+        } else if(gameChoice.equals("war")){
             game = new War(person);
         } else {
             game = null;

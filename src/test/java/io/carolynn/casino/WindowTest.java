@@ -11,6 +11,12 @@ public class WindowTest {
         EventQueue.invokeLater(()-> {
             Window window = new Window();
             window.setTitle("Casino");
+            window.setBackground();
         });
+
+//        String[] fontName = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+//        for(String font: fontName){
+//            System.out.println(font);
+//        }
     }
 }

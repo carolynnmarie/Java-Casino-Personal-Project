@@ -70,6 +70,20 @@ public class DeckTest {
     }
 
     @Test
+    public void dealHandTest(){
+        ArrayList<Card> hand = deck.dealHand(15);
+        ArrayList<Card> hand2 = deck.dealHand(15);
+        ArrayList<Card> hand3 = deck.dealHand(10);
+//        int expected = 42;
+//        int actual = deck.getDeckSize();
+//        Assert.assertEquals(expected, actual);
+        System.out.println(hand.toString());
+        System.out.println(hand2.toString());
+        System.out.println(hand3.toString());
+        System.out.println(deck.getDeck().toString());
+    }
+
+    @Test
     public void clearDeckTest(){
         deck.clearDeck();
         Integer expected = 0;

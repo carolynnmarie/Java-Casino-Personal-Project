@@ -29,10 +29,12 @@ public class Casino {
         boolean again = true;
         do {
             System.out.println("What game would you like to play?  Please pick from the following options:" +
-                    "\nBlackJack\nGoFish\nWar\nCraps");
-            String gameChoice = scanner.nextLine();
-            Game game = GameFactory.goToGame(gameChoice, player);
-            game.start();
+                    "\nBlackJack\nGo Fish\nWar");
+            String gameChoice = scanner.nextLine().toLowerCase();
+            while(gameChoice.equals("blackjack")||gameChoice.equals("go fish")||gameChoice.equals("war")) {
+                Game game = GameFactory.goToGame(gameChoice, player);
+                game.start();
+            }
             again = startAnotherGame();
         }while(again);
         System.out.println("Good bye, thank you for playing!");

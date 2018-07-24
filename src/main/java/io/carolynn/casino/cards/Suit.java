@@ -3,7 +3,7 @@ package io.carolynn.casino.cards;
 public enum Suit {
     CLUBS("clubs","\u2663"),
     DIAMONDS("diamonds", "\u2666"),
-    SPADES("spades", "\u2665"),
+    SPADES("spades", "\u2660"),
     HEARTS("hearts", "\u2665");
 
     final String suitWord;
