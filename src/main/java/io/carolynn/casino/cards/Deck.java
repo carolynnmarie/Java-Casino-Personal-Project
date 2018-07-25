@@ -76,13 +76,15 @@ public class Deck {
     }
 
     public ArrayList<Card> remove(ArrayList<Card> cards){
+        ArrayList<Card> list = new ArrayList<>();
         for(Card card: deck){
             for(Card hand: cards){
                 if(card.getSuitWord().equals(hand.getSuitWord()) && card.getRank().equals(hand.getRank())){
-                    deck.remove(card);
+                    list.add(card);
                 }
             }
         }
+        deck.removeAll(list);
         return deck;
     }
 

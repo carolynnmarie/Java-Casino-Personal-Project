@@ -134,7 +134,7 @@ public class GoFish extends CardGame {
         return hasCard;
     }
 
-    private int playerGoFish(int desiredCard, ArrayList<Card> hand){
+    public int playerGoFish(int desiredCard, ArrayList<Card> hand){
         cardCountCheck();
         int wish = 0;
         Card card = houseDeck.drawCard();
@@ -150,7 +150,7 @@ public class GoFish extends CardGame {
         return wish;
     }
 
-    private void playerBookRemoval(int cardValue){
+    public void playerBookRemoval(int cardValue){
         if (bookCountCheck(cardValue, playerHand)) {
             System.out.println("Congratulations, you now have 4 " + cardValue + "s! You scored a book!");
             setPlayerBook(playerBook + 1);
@@ -168,21 +168,25 @@ public class GoFish extends CardGame {
         int cards = 0;
         do {
             int dealerCard = dealerCardChoice();
-            System.out.println("\nDealer's turn!  Do you have any " + dealerCard + "s?");
-            cards = doYouHaveCard(dealerCard, playerHand);
-            if(cards >= 1){
-                System.out.println("Dealer takes your " + dealerCard + "s.");
-                swapCards(dealerCard,playerHand,dealerHand);
-            } else {
-                System.out.println("Dealer has to Go Fish!\n");
-                cards = dealerGoFish(dealerCard,dealerHand);
-            }
-            dealerBookRemoval(dealerCard);
+            cards = dealerAsks(dealerCard);
         }while(cards != 0 && cardCountCheck());
-
     }
 
-    public int dealerCardChoice(){
+    public int dealerAsks(int dealerCard){
+        System.out.println("\nDealer's turn!  Do you have any " + dealerCard + "s?");
+        int cards = doYouHaveCard(dealerCard, playerHand);
+        if(cards >= 1){
+            System.out.println("Dealer takes your " + dealerCard + "s.");
+            swapCards(dealerCard,playerHand,dealerHand);
+        } else {
+            System.out.println("Dealer has to Go Fish!\n");
+            cards = dealerGoFish(dealerCard,dealerHand);
+        }
+        dealerBookRemoval(dealerCard);
+        return cards;
+    }
+
+    private int dealerCardChoice(){
         int x = (int)Math.floor(Math.random()*dealerHand.size());
         return dealerHand.get(x).getRank();
     }
@@ -253,7 +257,7 @@ public class GoFish extends CardGame {
         return false;
     }
 
-    public boolean cardCountCheck(){
+    private boolean cardCountCheck(){
         if(houseDeck.getDeckSize()>0 && playerHand.size()>0 && dealerHand.size()>0) return true;
         return false;
     }
