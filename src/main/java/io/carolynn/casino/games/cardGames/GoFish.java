@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class GoFish extends CardGame {
 
-    private Person player;
+
     private Person dealer;
     private Deck houseDeck;
     private ArrayList<Card> playerHand;
@@ -31,8 +31,6 @@ public class GoFish extends CardGame {
 
 
     public Person getPlayer() { return super.getPlayer(); }
-
-    public void setPlayer(Person player1) { this.player = player1; }
 
     public Person getDealer() { return dealer; }
 
