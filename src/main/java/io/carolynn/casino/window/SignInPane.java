@@ -30,46 +30,55 @@ public class SignInPane extends JPanel {
         setVisible(true);
         setSize(400,200);
         setLayout(new BorderLayout());
-        setBackground(Color.WHITE);
+
+
         this.panel = new JPanel(new GridBagLayout());
         panel.setBorder(new LineBorder(Color.WHITE));
-        panel.setBackground(Color.WHITE);
 
 
         GridBagConstraints gBC = new GridBagConstraints();
         gBC.fill = GridBagConstraints.HORIZONTAL;
 
+        JLabel welcome = new JLabel("Welcome to the Casino!");
+        gBC.gridx = 1;
+        gBC.gridy = 0;
+        gBC.gridwidth = 1;
+        panel.add(welcome, gBC);
+
         this.userNameLabel = new JLabel("Username: ");
         gBC.gridx = 0;
-        gBC.gridy = 0;
+        gBC.gridy = 1;
         gBC.gridwidth = 1;
         panel.add(userNameLabel,gBC);
 
         this.chipAmntLabel = new JLabel("Starting Chip Amount: ");
         gBC.gridx = 0;
-        gBC.gridy = 1;
+        gBC.gridy = 2;
         gBC.gridwidth = 1;
         panel.add(chipAmntLabel,gBC);
 
 
         this.userNameField = new JTextField(15);
         gBC.gridx = 1;
-        gBC.gridy = 0;
-        gBC.gridwidth = 2;
+        gBC.gridy = 1;
+        gBC.gridwidth = 1;
         panel.add(userNameField,gBC);
 
         this.numberFormat = NumberFormat.getIntegerInstance();
         numberFormat.setGroupingUsed(false);
         this.chipsAmountField = new JFormattedTextField(numberFormat);
         gBC.gridx = 1;
-        gBC.gridy = 1;
-        gBC.gridwidth = 2;
+        gBC.gridy = 2;
+        gBC.gridwidth = 1;
         panel.add(chipsAmountField,gBC);
 
         this.signInButton = new JButton("Sign In");
         signInButton.addActionListener(new ButtonListener());
-        signInButton.setBackground(Color.LIGHT_GRAY);
-        panel.add(signInButton);
+        signInButton.setBackground(Color.DARK_GRAY);
+        gBC.gridx = 2;
+        gBC.gridy = 1;
+        gBC.gridwidth = 1;
+        panel.add(signInButton, gBC);
         add(panel);
 
     }
@@ -83,13 +92,27 @@ private class ButtonListener implements ActionListener{
             player = new Person(name);
             Integer chips = Integer.parseInt(chipsAmountField.getText());
             player.setChips(chips);
+            setVisible(false);
+            getParent().add(new JPanel());
+            getParent().add(new CasinoMenuPane(player));
 
-            Window window = new Window(new CasinoMenuPane(player));
-            window.setBackground(Color.WHITE);
-            window.setTitle("Menu");
+
+
+//            Window window = new Window();
+//            window.addPanel(new CasinoMenuPane(player));
+//            window.setBackground(Color.WHITE);
+//            window.setTitle("Menu");
         });
     }
 }
+
+//button.addActionListener(new java.awt.event.ActionListener() {
+//        @Override
+//        public void actionPerformed(java.awt.event.ActionEvent evt) {
+//            String name = JOptionPane.showInputDialog(parent,
+//                    "What is your name?", null);
+//        }
+//    });
 
 //    public void paintComponent(Graphics graphic1){
 //        Graphics2D graphic = (Graphics2D) graphic1;

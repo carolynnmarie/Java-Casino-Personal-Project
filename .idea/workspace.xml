@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="943598cc-701a-4e97-8faf-9ab35b72208f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/CasinoMenuPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/CasinoMenuPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/SignInPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/SignInPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/Window.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/Window.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/io/carolynn/casino/WindowTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/io/carolynn/casino/WindowTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,8 +24,8 @@
       <file leaf-file-name="SignInPane.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/SignInPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="61" column="42" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+            <state relative-caret-position="122">
+              <caret line="32" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,8 +45,8 @@
       <file leaf-file-name="CasinoMenuPane.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/CasinoMenuPane.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="72">
+              <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,11 +84,11 @@
       <file leaf-file-name="Window.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/Window.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="82">
-              <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+            <state relative-caret-position="239">
+              <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
               <folding>
-                <element signature="e#903#904#0" expanded="true" />
-                <element signature="e#932#933#0" expanded="true" />
+                <element signature="e#1407#1408#0" expanded="true" />
+                <element signature="e#1446#1447#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -204,9 +204,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="252" />
+    <option name="x" value="90" />
     <option name="y" value="23" />
-    <option name="width" value="1188" />
+    <option name="width" value="1350" />
     <option name="height" value="811" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -527,7 +527,7 @@
       <workItem from="1535562957407" duration="118000" />
       <workItem from="1535563093292" duration="13000" />
       <workItem from="1535564084933" duration="4794000" />
-      <workItem from="1535741753466" duration="14580000" />
+      <workItem from="1535741753466" duration="22319000" />
     </task>
     <servers />
   </component>
@@ -564,10 +564,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186760000" />
+    <option name="totallyTimeSpent" value="194499000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="252" y="23" width="1188" height="811" extended-state="0" />
+    <frame x="90" y="23" width="1350" height="811" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -588,10 +588,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" weight="0.32962447" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="12" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.4995925" visible="true" weight="0.39635855" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4995925" visible="true" weight="0.39635855" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49830508" weight="0.28851542" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2870855" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25152904" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32899493" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3277311" />
@@ -645,8 +645,8 @@
         <state relative-caret-position="225">
           <caret line="16" column="17" lean-forward="true" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding>
-            <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
+            <element signature="e#1407#1408#0" expanded="true" />
+            <element signature="e#1446#1447#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -756,31 +756,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="82">
-          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
-          <folding>
-            <element signature="e#903#904#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/SignInPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="61" column="42" selection-start-line="61" selection-start-column="42" selection-end-line="61" selection-end-column="42" />
+        <state relative-caret-position="122">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="e#1407#1408#0" expanded="true" />
+            <element signature="e#1446#1447#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/CasinoMenuPane.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="72">
+          <caret line="31" column="33" lean-forward="true" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

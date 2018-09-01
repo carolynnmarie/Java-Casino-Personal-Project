@@ -21,17 +21,20 @@ public class CasinoMenuPane extends JPanel {
     public CasinoMenuPane(Person player){
         this.player = player;
         setVisible(true);
-        setLayout(new GridLayout(3,1));
 
         ActionListener listener = new chooseGame();
 
-        JLabel nameLabel = new JLabel("Welcome, " + player.getName());
+        JLabel nameLabel = new JLabel("Welcome, " + player.getName() + "! Get ready to have some fun!");
         JLabel chipNumber = new JLabel("Starting chip amount is: " + player.getChips());
+        JLabel choose = new JLabel("What game would you like to play?");
 
         this.panel = new JPanel();
         panel.setVisible(true);
-        panel.setLayout(new GridLayout(4,1));
+        panel.setLayout(new GridLayout(7,1));
 
+        panel.add(nameLabel);
+        panel.add(chipNumber);
+        panel.add(choose);
 
         this.blackJack = new JButton("BlackJack");
         blackJack.addActionListener(listener);
@@ -49,16 +52,16 @@ public class CasinoMenuPane extends JPanel {
         craps.addActionListener(listener);
         panel.add(craps);
 
-        add(nameLabel );
-        add(chipNumber);
         add(panel);
-//        add(textPanel,BorderLayout.AFTER_LAST_LINE);
+
+
     }
 
     private class chooseGame implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            setVisible(false);
             String gameChoice = e.getActionCommand();
             while(gameChoice.equals("blackjack")||gameChoice.equals("go fish")||gameChoice.equals("war")) {
                 Game game = GameFactory.goToGame(gameChoice, player);

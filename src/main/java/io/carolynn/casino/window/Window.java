@@ -9,38 +9,34 @@ public class Window extends JFrame{
     private Toolkit toolkit;
 
 
-    public Window(JPanel panel){
+    public Window(){
         this.toolkit = Toolkit.getDefaultToolkit();
         Dimension size = toolkit.getScreenSize();
-        setSize(new Dimension(size.width-size.width/3, size.height-size.height/3));
-        setVisible(true);
+        setSize(new Dimension(size.width/2, size.height/2));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        setLocation(20,20);
 
+    }
 
-        JPanel text = new JPanel();
-        text.setSize(400,200);
-        text.setBackground(Color.WHITE);
-
-        JLabel textLabel = new JLabel("Welcome to the Casino!");
-        textLabel.setBackground(Color.WHITE);
-        text.add(textLabel);
-        getContentPane().add(text,"North");
-
-        this.panel = panel;
+    public void addPanel(JPanel panel) {
         panel.setBackground(Color.WHITE);
         getContentPane().add(panel);
-
     }
 
-    public JPanel getPanel() {
-        return panel;
+
+    public JLabel addLabel(String text){
+        return new JLabel(text);
     }
+
+
 
     public static void main(String[] args) {
         EventQueue.invokeLater(()-> {
-            Window window = new Window(new SignInPane());
+            Window window = new Window();
             window.setTitle("Casino");
             window.setBackground(Color.WHITE);
+            window.addPanel(new SignInPane());
         });
     }
 
