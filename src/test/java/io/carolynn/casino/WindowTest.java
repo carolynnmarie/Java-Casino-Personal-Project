@@ -7,16 +7,16 @@ import java.awt.*;
 
 public class WindowTest {
 
-    public static void main(String[] args){
-        EventQueue.invokeLater(()-> {
-            Window window = new Window();
-            window.setTitle("Casino");
-            window.setBackground();
-        });
+//    public static void main(String[] args){
+//        EventQueue.invokeLater(()-> {
+//            Window window = new Window();
+//            window.setTitle("Casino");
+//            window.setBackground(Color.WHITE);
+//        });
 
 //        String[] fontName = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 //        for(String font: fontName){
 //            System.out.println(font);
 //        }
-    }
+//    }
 }
