@@ -7,11 +7,8 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.font.FontRenderContext;
-import java.awt.geom.Rectangle2D;
 import java.text.NumberFormat;
 
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class SignInPane extends JPanel {
 
@@ -93,15 +90,8 @@ private class ButtonListener implements ActionListener{
             Integer chips = Integer.parseInt(chipsAmountField.getText());
             player.setChips(chips);
             setVisible(false);
-            getParent().add(new JPanel());
             getParent().add(new CasinoMenuPane(player));
 
-
-
-//            Window window = new Window();
-//            window.addPanel(new CasinoMenuPane(player));
-//            window.setBackground(Color.WHITE);
-//            window.setTitle("Menu");
         });
     }
 }
