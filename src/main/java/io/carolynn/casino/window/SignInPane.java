@@ -28,19 +28,27 @@ public class SignInPane extends JPanel {
         setSize(400,200);
         setLayout(new BorderLayout());
 
+        JLabel cards = new JLabel("\uD83C\uDCA1");
+        cards.setFont(getFont().deriveFont(48.0f));
+
+        JLabel card1 = new JLabel("\uD83C\uDCA1");
+        card1.setFont(getFont().deriveFont(48.0f));
 
         this.panel = new JPanel(new GridBagLayout());
         panel.setBorder(new LineBorder(Color.WHITE));
-
-
+        panel.setBackground(Color.WHITE);
+        panel.add(card1);
         GridBagConstraints gBC = new GridBagConstraints();
         gBC.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel welcome = new JLabel("Welcome to the Casino!");
+        welcome.setFont(getFont().deriveFont(18.0f));
         gBC.gridx = 1;
         gBC.gridy = 0;
         gBC.gridwidth = 1;
         panel.add(welcome, gBC);
+
+        panel.add(cards);
 
         this.userNameLabel = new JLabel("Username: ");
         gBC.gridx = 0;
@@ -53,7 +61,6 @@ public class SignInPane extends JPanel {
         gBC.gridy = 2;
         gBC.gridwidth = 1;
         panel.add(chipAmntLabel,gBC);
-
 
         this.userNameField = new JTextField(15);
         gBC.gridx = 1;
@@ -77,7 +84,6 @@ public class SignInPane extends JPanel {
         gBC.gridwidth = 1;
         panel.add(signInButton, gBC);
         add(panel);
-
     }
 
 private class ButtonListener implements ActionListener{

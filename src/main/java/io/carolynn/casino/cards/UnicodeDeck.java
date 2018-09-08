@@ -12,6 +12,7 @@ public class UnicodeDeck {
         for(UnicodeCard card: UnicodeCard.values()){
             deck.add(card);
         }
+        Collections.shuffle(deck);
     }
 
     public UnicodeDeck(ArrayList<UnicodeCard> deck){

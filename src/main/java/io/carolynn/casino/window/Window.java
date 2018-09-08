@@ -26,12 +26,6 @@ public class Window extends JFrame{
     }
 
 
-    public JLabel addLabel(String text){
-        return new JLabel(text);
-    }
-
-
-
     public static void main(String[] args) {
         EventQueue.invokeLater(()-> {
             Window window = new Window();

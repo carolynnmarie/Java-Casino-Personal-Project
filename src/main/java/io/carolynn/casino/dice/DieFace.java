@@ -2,12 +2,14 @@ package io.carolynn.casino.dice;
 
 public enum DieFace {
 
-    ONE(1), TWO(2), THREE(3), FOUR(4), FIVE(5), SIX(6);
+    ONE(1,"\u2680"), TWO(2,"\u2681"), THREE(3,"\u2682"), FOUR(4,"\u2683"), FIVE(5,"\u2684"), SIX(6,"\u2685");
 
     private Integer value;
+    private String picture;
 
-    DieFace(Integer value){
+    DieFace(Integer value, String picture){
         this.value = value;
+        this.picture = picture;
     }
 
     DieFace(){
@@ -22,6 +24,7 @@ public enum DieFace {
         return this.value;
     }
 
-
-
+    public String getPicture() {
+        return picture;
+    }
 }
