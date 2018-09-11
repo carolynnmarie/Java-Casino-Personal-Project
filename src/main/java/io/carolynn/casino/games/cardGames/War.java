@@ -12,6 +12,7 @@ public class War extends CardGame {
     private Deck houseDeck;
     private ArrayList<Card> playerHand;
     private ArrayList<Card> dealerHand;
+    private ArrayList<Card> tableCards;
 
 
     public War(Person player){
@@ -19,6 +20,7 @@ public class War extends CardGame {
         this.houseDeck = new Deck();
         this.playerHand = houseDeck.dealHand(26);
         this.dealerHand = houseDeck.getDeck();
+        this.tableCards = new ArrayList<>();
     }
 
     @Override
@@ -66,27 +68,28 @@ public class War extends CardGame {
     public void runGame() {
         Card playerCard = playerHand.remove(0);
         Card dealerCard = dealerHand.remove(0);
-        ArrayList<Card> table = new ArrayList<>();
-        table.add(playerCard);
-        table.add(dealerCard);
+
+        tableCards.add(playerCard);
+        tableCards.add(dealerCard);
         System.out.println("Your card: " + playerCard.toString() + "  Dealer's card: " + dealerCard.toString());
         if (playerCard.getRank() > dealerCard.getRank()) {
-            playerHand.addAll(table);
+            playerHand.addAll(tableCards);
             System.out.println("You won the round!\nYou have " + playerHand.size() + " cards, dealer has " + dealerHand.size()+ " cards.");
         } else if (playerCard.getRank() < dealerCard.getRank()) {
-            dealerHand.addAll(table);
+            dealerHand.addAll(tableCards);
             System.out.println("Dealer won the round!\nYou have " + playerHand.size() + " cards, dealer has " + dealerHand.size()+ " cards.");
         } else {
             if (!checkIfEitherAreEmpty()) {
                 System.out.println("It's a tie!\n\n***I Declare War!***");
-                iDeclareWar(table);
+                iDeclareWar();
                 System.out.println("You have " + playerHand.size() + " cards, dealer has " + dealerHand.size()+ " cards.");
             }
         }
+        tableCards.clear();
     }
 
 
-    public void iDeclareWar(ArrayList<Card> table){
+    public void iDeclareWar(){
         Card topDealerCard;
         Card topPlayerCard;
         do{
@@ -94,26 +97,24 @@ public class War extends CardGame {
             topDealerCard = dealerHand.get(numOfCards - 1);
             topPlayerCard = playerHand.get(numOfCards - 1);
             System.out.println("Dealer's top card: " + topDealerCard.toString() + ".\nYour top card: " + topPlayerCard.toString());
-            table.addAll(createWarTablePile(numOfCards));
+            createWarTablePile(numOfCards);
             if (topDealerCard.getRank() > topPlayerCard.getRank()) {
                 System.out.println("Dealer won!");
-                dealerHand.addAll(table);
+                dealerHand.addAll(tableCards);
             } else if (topDealerCard.getRank() < topPlayerCard.getRank()) {
                 System.out.println("You won!");
-                playerHand.addAll(table);
+                playerHand.addAll(tableCards);
             } else {
                 System.out.println("It's a tie, I Declare War again!");
             }
         } while (topDealerCard == topPlayerCard && !checkIfEitherAreEmpty());
     }
 
-    public ArrayList<Card> createWarTablePile(int numberOfCards){
-        ArrayList<Card> warWin = new ArrayList<>();
+    public void createWarTablePile(int numberOfCards){
         for(int i = 0; i<numberOfCards; i++){
-            warWin.add(playerHand.remove(0));
-            warWin.add(dealerHand.remove(0));
+            tableCards.add(playerHand.remove(0));
+            tableCards.add(dealerHand.remove(0));
         }
-        return warWin;
     }
 
     public int determineNumberOfCardsPlayed(ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
