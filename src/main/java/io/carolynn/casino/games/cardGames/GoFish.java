@@ -10,8 +10,6 @@ import java.util.Scanner;
 
 public class GoFish extends CardGame {
 
-
-    private Person dealer;
     private Deck houseDeck;
     private ArrayList<Card> playerHand;
     private ArrayList<Card> dealerHand;
@@ -21,7 +19,6 @@ public class GoFish extends CardGame {
 
     public GoFish(Person player){
         super(player);
-        this.dealer = new Person("Dealer");
         this.houseDeck = new Deck();
         this.playerHand = new ArrayList<>();
         this.dealerHand = new ArrayList<>();

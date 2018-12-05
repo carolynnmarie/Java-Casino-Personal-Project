@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class BlackJack extends CardGame {
 
-    private Person dealer;
+
     private Deck houseDeck;
     private int bet;
 

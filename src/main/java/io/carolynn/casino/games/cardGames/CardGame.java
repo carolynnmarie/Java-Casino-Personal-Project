@@ -9,20 +9,11 @@ import java.util.ArrayList;
 
 public abstract class CardGame extends Game {
 
-    private Person player;
-    private Person dealer;
     private Deck houseDeck;
 
 
-    public CardGame(){
-        this.player = new Person("You");
-        this.dealer = new Person("Dealer");
-        this.houseDeck = new Deck();
-    }
-
     public CardGame(Person player){
-
-        this.player = player;
+        super(player);
         this.dealer = new Person("Dealer");
         this.houseDeck = new Deck();
     }

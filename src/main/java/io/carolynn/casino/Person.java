@@ -37,7 +37,11 @@ public class Person {
     }
 
     public void addChips(int chips){
-        this.chips = getChips() + chips;
+        this.chips += chips;
+    }
+
+    public void removeChips(int chips){
+        this.chips -= chips;
     }
 
     public ArrayList<Card> getHand() { return hand; }

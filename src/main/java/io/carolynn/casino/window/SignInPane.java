@@ -36,7 +36,6 @@ public class SignInPane extends JPanel {
 
         this.panel = new JPanel(new GridBagLayout());
         panel.setBorder(new LineBorder(Color.WHITE));
-        panel.setBackground(Color.WHITE);
         panel.add(card1);
         GridBagConstraints gBC = new GridBagConstraints();
         gBC.fill = GridBagConstraints.HORIZONTAL;

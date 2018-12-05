@@ -5,8 +5,8 @@ import io.carolynn.casino.cards.Deck;
 
 public abstract class Game {
 
-    private Person player;
-    private Person dealer;
+    public Person player;
+    public Person dealer;
 
     public Game(){
 
