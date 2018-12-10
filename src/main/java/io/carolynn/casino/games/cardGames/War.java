@@ -60,7 +60,6 @@ public class War extends CardGame {
                 runGame();
             }
         } while(!checkIfEitherAreEmpty()&& !answer.equals("exit"));
-        System.out.println(declareWinner());
         end();
     }
 
@@ -97,7 +96,10 @@ public class War extends CardGame {
             topDealerCard = dealerHand.get(numOfCards - 1);
             topPlayerCard = playerHand.get(numOfCards - 1);
             System.out.println("Dealer's top card: " + topDealerCard.toString() + ".\nYour top card: " + topPlayerCard.toString());
-            createWarTablePile(numOfCards);
+            for(int i = 0; i<numOfCards; i++){
+                tableCards.add(playerHand.remove(0));
+                tableCards.add(dealerHand.remove(0));
+            }
             if (topDealerCard.getRank() > topPlayerCard.getRank()) {
                 System.out.println("Dealer won!");
                 dealerHand.addAll(tableCards);
@@ -110,12 +112,6 @@ public class War extends CardGame {
         } while (topDealerCard == topPlayerCard && !checkIfEitherAreEmpty());
     }
 
-    public void createWarTablePile(int numberOfCards){
-        for(int i = 0; i<numberOfCards; i++){
-            tableCards.add(playerHand.remove(0));
-            tableCards.add(dealerHand.remove(0));
-        }
-    }
 
     public int determineNumberOfCardsPlayed(ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
         return (playerHand.size() >= 3 && dealerHand.size() >= 3) ? 3 :
@@ -132,13 +128,10 @@ public class War extends CardGame {
     }
 
 
-    public String declareWinner(){
+    public void end() {
         String winner = "And the winner is ";
         winner += (playerHand.size() < dealerHand.size())? "the dealer!": getPlayer().getName();
-        return winner;
-    }
-
-    public void end() {
+        System.out.println(winner);
         Scanner input = new Scanner(System.in);
         playerHand.clear();
         dealerHand.clear();

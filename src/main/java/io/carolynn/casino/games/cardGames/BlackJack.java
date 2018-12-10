@@ -49,12 +49,12 @@ public class BlackJack extends CardGame {
         Scanner input = new Scanner(System.in);
         int chips = 0;
         do {
-            System.out.println("Welcome to BlackJack, " + getPlayerName() + ". Your current chip total is " + getPlayer().getChips() +
-                    ". Please enter the number of chips you would like to bet");
+            System.out.println("Welcome to BlackJack, " + getPlayerName() + ". Your current chip total is " + getPlayer().getChips()
+                    + ". Please enter the number of chips you would like to bet");
             chips = input.nextInt();
             if (chips <= getPlayer().getChips()) {
                 setBet(chips);
-                getPlayer().setChips(getPlayer().getChips()-chips);
+                getPlayer().removeChips(getBet());
             } else {
                 System.out.println("Insufficient funds.  You currently have: " + getPlayer().getChips() + "Enter new amount");
             }
@@ -67,15 +67,9 @@ public class BlackJack extends CardGame {
         Deck playerHand = dealHands(2);
         Deck dealerHand = dealHands(2);
         String dealerTwoCards = dealerHand.getDeck().get(0).toString() + dealerHand.getDeck().get(1).toString();
-        System.out.println("Your cards are: " + playerHand.toString() + ". \nDealer's first two cards are: " +
-                dealerTwoCards + "");
-        int playerCount = valueSum(playerHand);
-        System.out.println(bustOrBlackJack(playerCount));
+        System.out.println("Dealer's first two cards are: " + dealerTwoCards);
+        int playerCount = playerTurn(playerHand);
         if(playerCount<21) {
-            playerHand = playerTurn(playerHand);
-            playerCount = valueSum(playerHand);
-        }
-        if(playerCount<21){
             dealerHand = dealerTurn(dealerHand);
         }
         int dealerCount = valueSum(dealerHand);
@@ -85,12 +79,15 @@ public class BlackJack extends CardGame {
         end();
     }
 
-    public Deck playerTurn(Deck playerHand){
+
+
+    public int playerTurn(Deck playerHand){
         Scanner scan = new Scanner(System.in);
         String answer = "";
         int playerSum = 0;
         do{
-            System.out.println("Would you like to hit or stay? Press h for hit, any other key for stay");
+            System.out.println("Your cards are: " + playerHand.toString() + ". \n" +
+                    "Would you like to hit or stay? Press h for hit, any other key for stay");
             answer = scan.nextLine();
             if(answer.equalsIgnoreCase("h")){
                 Card card = getHouseDeck().drawCard();
@@ -102,7 +99,7 @@ public class BlackJack extends CardGame {
                 break;
             }
         } while(playerSum<=21);
-        return playerHand;
+        return playerSum;
     }
 
     public Deck dealerTurn(Deck dealerHand){
@@ -168,7 +165,8 @@ public class BlackJack extends CardGame {
         if(playerCount == dealerCount){
             winner = "It's a tie! You keep the chips you bet\n";
         } else if(playerCount>dealerCount){
-            winner = "Congratulations, " + getPlayerName() + ", you won! You keep the chips you bet and get " + getWinnings() + " more chips.\n";
+            winner = "Congratulations, " + getPlayerName() + ", you won! You keep the chips you bet and get " + getWinnings() +
+                    " more chips.\n";
             getPlayer().addChips(getBet() + getWinnings());
         } else {
             winner = "Dealer wins! You lost your bet of " + getBet() + " chips.\n";

@@ -29,9 +29,10 @@ public class Casino {
         boolean again = true;
         do {
             System.out.println("What game would you like to play?  Please pick from the following options:" +
-                    "\nBlackJack\nGo Fish\nWar");
+                    "\nBlackJack\nGo Fish\nWar\nSlot Machine");
             String gameChoice = scanner.nextLine().toLowerCase();
-            while(gameChoice.equals("blackjack")||gameChoice.equals("go fish")||gameChoice.equals("war")) {
+            while(gameChoice.equals("blackjack")||gameChoice.equals("go fish")||gameChoice.equals("war")||
+                    gameChoice.equals("slot machine")) {
                 Game game = GameFactory.goToGame(gameChoice, player);
                 game.start();
             }

@@ -97,7 +97,6 @@ public class GoFish extends CardGame {
         do{
             hasCard = playerAsks(playerCardChoice());
         }while(hasCard != 0 && cardCountCheck());
-
     }
 
     public int playerCardChoice(){
@@ -162,7 +161,7 @@ public class GoFish extends CardGame {
     public void dealerTurn(){
         int cards = 0;
         do {
-            int dealerCard = dealerCardChoice();
+            int dealerCard = dealerHand.get((int)Math.floor(Math.random()*dealerHand.size())).getRank();
             cards = dealerAsks(dealerCard);
         }while(cards != 0 && cardCountCheck());
     }
@@ -181,10 +180,6 @@ public class GoFish extends CardGame {
         return cards;
     }
 
-    private int dealerCardChoice(){
-        int x = (int)Math.floor(Math.random()*dealerHand.size());
-        return dealerHand.get(x).getRank();
-    }
 
     private int dealerGoFish(int desiredCard, ArrayList<Card> hand){
         try{

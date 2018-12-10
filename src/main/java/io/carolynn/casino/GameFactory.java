@@ -5,6 +5,7 @@ import io.carolynn.casino.games.diceGames.Craps;
 import io.carolynn.casino.games.Game;
 import io.carolynn.casino.games.cardGames.GoFish;
 import io.carolynn.casino.games.cardGames.War;
+import io.carolynn.casino.games.slots.SlotMachine;
 
 public class GameFactory {
 
@@ -16,8 +17,10 @@ public class GameFactory {
 //            game = new Craps(person);
         } else if(gameChoice.equals("go fish")) {
             game = new GoFish(person);
-        } else if(gameChoice.equals("war")){
+        } else if(gameChoice.equals("war")) {
             game = new War(person);
+        } else if(gameChoice.equals("slot machine")){
+            game = new SlotMachine(person);
         } else {
             game = null;
         }
