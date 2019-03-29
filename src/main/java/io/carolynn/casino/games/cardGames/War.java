@@ -29,27 +29,6 @@ public class War extends CardGame {
     }
 
     @Override
-    public void setHouseDeck(Deck houseDeck) {
-        this.houseDeck = houseDeck;
-    }
-
-    public ArrayList<Card> getPlayerHand() {
-        return playerHand;
-    }
-
-    public ArrayList<Card> getDealerHand() {
-        return dealerHand;
-    }
-
-    public void setPlayerHand(ArrayList<Card> playerHand) {
-        this.playerHand = playerHand;
-    }
-
-    public void setDealerHand(ArrayList<Card> dealerHand) {
-        this.dealerHand = dealerHand;
-    }
-
-    @Override
     public void start() {
         String answer = "";
         Scanner scan = new Scanner(System.in);
@@ -73,10 +52,12 @@ public class War extends CardGame {
         System.out.println("Your card: " + playerCard.toString() + "  Dealer's card: " + dealerCard.toString());
         if (playerCard.getRank() > dealerCard.getRank()) {
             playerHand.addAll(tableCards);
-            System.out.println("You won the round!\nYou have " + playerHand.size() + " cards, dealer has " + dealerHand.size()+ " cards.");
+            System.out.println("You won the round!\nYou have " + playerHand.size() + " cards, dealer has "
+                    + dealerHand.size()+ " cards.");
         } else if (playerCard.getRank() < dealerCard.getRank()) {
             dealerHand.addAll(tableCards);
-            System.out.println("Dealer won the round!\nYou have " + playerHand.size() + " cards, dealer has " + dealerHand.size()+ " cards.");
+            System.out.println("Dealer won the round!\nYou have " + playerHand.size() + " cards, dealer has "
+                    + dealerHand.size()+ " cards.");
         } else {
             if (!checkIfEitherAreEmpty()) {
                 System.out.println("It's a tie!\n\n***I Declare War!***");

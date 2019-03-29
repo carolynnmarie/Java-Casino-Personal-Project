@@ -31,11 +31,7 @@ public class GoFish extends CardGame {
 
     public Person getDealer() { return dealer; }
 
-    public void setDealer(Person dealer) { this.dealer = dealer; }
-
     public Deck getHouseDeck() { return houseDeck; }
-
-    public void setHouseDeck(Deck houseDeck) { this.houseDeck = houseDeck; }
 
     public ArrayList<Card> getPlayerHand() {
         return playerHand;
@@ -43,24 +39,12 @@ public class GoFish extends CardGame {
 
     public void setPlayerHand(ArrayList<Card> playerHand) { this.playerHand = playerHand; }
 
-    public ArrayList<Card> getDealerHand() {
-        return dealerHand;
-    }
-
     public void setDealerHand(ArrayList<Card> dealerHand) {
         this.dealerHand = dealerHand;
     }
 
-    public int getPlayerBook() {
-        return playerBook;
-    }
-
     public void setPlayerBook(int playerBook) {
         this.playerBook = playerBook;
-    }
-
-    public int getDealerBook() {
-        return dealerBook;
     }
 
     public void setDealerBook(int dealerBook) {
@@ -264,11 +248,13 @@ public class GoFish extends CardGame {
 
     public void whoWonTheGame(){
         if (playerBook > dealerBook){
-            System.out.println("**You Won!**\nYou won the game with a Book Score of " + playerBook + "!\nDealer had a Book Score of " + dealerBook + "!");
+            System.out.println("**You Won!**\nYou won the game with a Book Score of " + playerBook +
+                    "!\nDealer had a Book Score of " + dealerBook + "!");
         } else if (playerBook == dealerBook) {
             System.out.println("**You Tied!**\n"+ "You both had a Book Score of " + playerBook+ "!");
         } else {
-            System.out.println("**You Lost!**\nDealer won with a Book Score of " + dealerBook + "!\nYou had a Book Score of " + playerBook + "!");
+            System.out.println("**You Lost!**\nDealer won with a Book Score of " + dealerBook + "!\nYou had a Book Score of "
+                    + playerBook + "!");
         }
     }
 

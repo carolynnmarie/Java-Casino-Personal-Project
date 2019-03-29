@@ -20,6 +20,7 @@ public abstract class CardGame extends Game {
 
     public abstract void start();
     public abstract void end();
+
     public Integer checkDeckSize(ArrayList<Card> hand){
         return hand.size();
     }
@@ -44,15 +45,8 @@ public abstract class CardGame extends Game {
         return dealer;
     }
 
-    public void setDealer(Person dealer) {
-        this.dealer = dealer;
-    }
-
     public Deck getHouseDeck() {
         return houseDeck;
     }
 
-    public void setHouseDeck(Deck houseDeck) {
-        this.houseDeck = houseDeck;
-    }
 }

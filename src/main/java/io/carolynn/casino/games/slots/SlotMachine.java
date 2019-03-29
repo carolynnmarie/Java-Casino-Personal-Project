@@ -71,7 +71,8 @@ public class SlotMachine extends Game {
         if(payout == 0){
             payoutResult += "\nSorry, you did not get 3 in a row.  Your balance is now " + player.getChips();
         } else {
-            payoutResult += "\nYou got 3 " + result + " in a row! Your payout is " + payout + "! Your balance is " + player.getChips();
+            payoutResult += "\nYou got 3 " + result + " in a row! Your payout is " + payout + "! Your balance is "
+                    + player.getChips();
         }
         System.out.println(payoutResult);
     }

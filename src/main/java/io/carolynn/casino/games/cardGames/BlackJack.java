@@ -40,11 +40,6 @@ public class BlackJack extends CardGame {
     }
 
     @Override
-    public void setHouseDeck(Deck houseDeck) {
-        this.houseDeck = houseDeck;
-    }
-
-    @Override
     public void start() {
         Scanner input = new Scanner(System.in);
         int chips = 0;
