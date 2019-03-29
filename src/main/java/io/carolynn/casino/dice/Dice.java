@@ -28,7 +28,4 @@ public class Dice {
         this.dieFace.setValue(faceValue);
     }
 
-
-
-
 }
