@@ -17,9 +17,9 @@ public class Craps extends Game {
 
     private LinkedHashMap<String, Integer> lineComeFieldBets;
     private ArrayList<String> lineComeFieldNames;
-    private LinkedHashMap<String,Integer> oddsBets;
+    private LinkedHashMap<String,Integer> oddsPassBets;
     private LinkedHashMap<String, HashMap<Integer, Integer>> placeBets;
-    private LinkedHashMap<String, HashMap<Integer, Integer>> comePointsBets;
+    private LinkedHashMap<String, HashMap<Integer, Integer>> oddsComePointsBets;
     private ArrayList<HashMap<Integer,Double>> betPayouts;
     private HashMap<Integer, Double> placeWinPayout;
     private HashMap<Integer, Double> placeLosePayout;
@@ -38,17 +38,15 @@ public class Craps extends Game {
         this.lineComeFieldBets = new LinkedHashMap<>();
         this.lineComeFieldNames = new ArrayList<>(Arrays.asList("pass","don't pass", "come","don't come", "field"));
         lineComeFieldNames.stream().forEach(e->lineComeFieldBets.put(e,0));
-        this.oddsBets = new LinkedHashMap<>();
-        oddsBets.put("come",0);
-        oddsBets.put("don't come",0);
-        oddsBets.put("pass",0);
-        oddsBets.put("don't pass",0);
         this.placeBets = new LinkedHashMap<>();
         placeBets.put("place lose",new HashMap<>());
         placeBets.put("place win", new HashMap<>());
-        this.comePointsBets = new LinkedHashMap<>();
-        comePointsBets.put("come", new HashMap<>());
-        comePointsBets.put("don't come", new HashMap<>());
+        this.oddsPassBets = new LinkedHashMap<>();
+        oddsPassBets.put("pass",0);
+        oddsPassBets.put("don't pass",0);
+        this.oddsComePointsBets = new LinkedHashMap<>();
+        oddsComePointsBets.put("come", new HashMap<>());
+        oddsComePointsBets.put("don't come", new HashMap<>());
 
         CrapsBetPayouts payouts = new CrapsBetPayouts();
         this.placeLosePayout = payouts.getPlaceLosePayout();
@@ -83,15 +81,14 @@ public class Craps extends Game {
     public int rollDice(){
         diceManager.rollDice(2);
         diceValue = diceManager.totalValue();
+        System.out.println(diceManager.toStringPictures() + "Total value: " + diceValue);
         return diceValue;
     }
 
     public void comeOutRoll(){
+        System.out.println("Make your first roll!\n");
         rollDice();
-        StringBuilder builder = new StringBuilder("Make your first roll!\n")
-                .append(diceManager.toStringPictures())
-                .append(" Total value: ")
-                .append(diceValue);
+        StringBuilder builder = new StringBuilder();
         if(diceValue==2 || diceValue == 3){
             builder.append(". You crapped out. Pass Line bets lose and Don't Pass Line bets win.\n")
                     .append(passLineBetResult("pass",false))
@@ -116,22 +113,30 @@ public class Craps extends Game {
     public void placeInitialBet(){
         String answer = "";
         do{
-        System.out.println("You must place an initial Pass Line Bet. To make a bet on the Pass Line, type 'pass'. " +
-                "To make a bet on the Don't Pass Line, type 'don't pass'.");
-        answer = scanner.nextLine();
-        if(answer.equalsIgnoreCase("pass")){
-            makeLineComeFieldBet("pass");
-            break;
-        } else if (answer.equalsIgnoreCase("don't pass")){
-            makeLineComeFieldBet("don't pass");
-            break;
-        } else {
-            System.out.println("Invalid Input");
-        }
+            System.out.println("You must place an initial Pass Line Bet. To make a bet on the Pass Line, type 'pass'. " +
+                    "To make a bet on the Don't Pass Line, type 'don't pass'.");
+            answer = scanner.nextLine();
+            if(answer.equalsIgnoreCase("pass")){
+                makeLineComeFieldBet("pass");
+                break;
+            } else if (answer.equalsIgnoreCase("don't pass")){
+                makeLineComeFieldBet("don't pass");
+                break;
+            } else {
+                System.out.println("Invalid Input");
+            }
         } while (true);
     }
 
-    public String getPlayerSecondBetType(){
+    public void phaseTwoRoll(){
+        String betType = getPhaseTwoBetType();
+        makePhaseTwoBet(betType);
+        rollDice();
+
+    }
+
+
+    public String getPhaseTwoBetType(){
         ArrayList<String> betTypes = new ArrayList<>(Arrays.asList("come","don't come","pass","don't pass","field","odds",
                 "place win","place lose"));
         String answer = "";
@@ -146,24 +151,21 @@ public class Craps extends Game {
         return answer;
     }
 
-    public void placePhaseTwoBet(String betType){
-        int bet = betAmount();
+    public void makePhaseTwoBet(String betType){
+        int bet = getBetAmount();
         if(betType.equalsIgnoreCase("pass")|| betType.equalsIgnoreCase("don't pass") || betType.equalsIgnoreCase("come")||
                 betType.equalsIgnoreCase("don't come") || betType.equalsIgnoreCase("field")){
             lineComeFieldBets.put(betType,bet);
         } else if (betType.equalsIgnoreCase("place win")|| betType.equalsIgnoreCase("place lose")){
-
+            makePlaceBet(betType, bet);
         } else if (betType.equalsIgnoreCase("odds")){
             String oddsType = getOddsType();
-            if(oddsType.equalsIgnoreCase("place win") || oddsType.equalsIgnoreCase("place lose")){
-                makeOddsPlaceBet(oddsType);
-            } else if(oddsType.equalsIgnoreCase("come") || oddsType.equalsIgnoreCase("don't come")){
 
-            }
+            makeOddsBets(oddsType);
         }
     }
 
-    public int betAmount(){
+    public int getBetAmount(){
         int bet;
         do {
             System.out.println("How many chips would you like to bet?");
@@ -177,6 +179,11 @@ public class Craps extends Game {
         return bet;
     }
 
+    public void makeLineComeFieldBet(String betType){
+        int bet = getBetAmount();
+        lineComeFieldBets.put(betType,bet);
+    }
+
     private String getOddsType(){
         Scanner scan = new Scanner(System.in);
         ArrayList<String> oddsNames = new ArrayList<>(Arrays.asList("pass","don't pass", "come", "don't come"));
@@ -188,38 +195,40 @@ public class Craps extends Game {
         return type;
     }
 
-    public void makeOddsPlaceBet(String oddsType){
-        int bet = betAmount();
-        int point = betOnPoint();
+    private void makeOddsBets(String oddsType){
+        if(oddsType.equalsIgnoreCase("pass")  && oddsPassBets.get("pass") != 0){
+            oddsPassBets.put("pass",bet);
+        } else if(oddsType.equalsIgnoreCase("come") || oddsType.equalsIgnoreCase("don't come")){
+
+        }
+    }
+
+    public void makePlaceBet(String oddsType, int bet){
+        ArrayList<String> winLosePlaceValues = new ArrayList<>(Arrays.asList("4, ", "5, ", "6, ", "8, ", "9, ", "10"));
+        StringBuilder builder = new StringBuilder();
+        for(String item: winLosePlaceValues){
+            builder.append(item);
+        }
+        System.out.println("What number would you like to place your bet on?" + builder.toString());
+        int point = scanner.nextInt();
+        scanner.nextLine();
         for(Map.Entry<String,HashMap<Integer,Integer>> entry: placeBets.entrySet()){
             if(oddsType.equals(entry.getKey())){
                 entry.getValue().put(point,bet);
             }
         }
-
     }
 
-    private void makePlaceBet(String betType){
-        ArrayList<Integer> winLosePlaceValues = new ArrayList<>(Arrays.asList(4, 5, 6, 8, 9, 10));
-        System.out.println("What number would you like to put a " + betType + " bet on? 4, 5, 6, 8, 9, or 10?");
-        int num = scanner.nextInt();
-        scanner.nextLine();
-        int bet = betAmount();
-        HashMap<Integer,Integer> map = new HashMap();
-        map.put(num, bet);
-        placeBets.put(betType,map);
-    }
+//    public int betOnPoint(ArrayList<String> choices){
+//        Scanner scan = new Scanner(System.in);
+//        StringBuilder builder = new StringBuilder();
+//        for(String item: choices){
+//            builder.append(item);
+//        }
+//        System.out.println("What number would you like to place your bet on?" + builder.toString());
+//        return scan.nextInt();
+//    }
 
-    public int betOnPoint(){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("What number would you like to place your bet on?");
-        return scan.nextInt();
-    }
-
-    public void makeLineComeFieldBet(String betType){
-        int bet = betAmount();
-        lineComeFieldBets.put(betType,bet);
-    }
 
     public String passLineBetResult(String betType, boolean winLose){
         String x = "";
@@ -232,11 +241,8 @@ public class Craps extends Game {
         return x;
     }
 
-    public void phaseTwoRoll(){
-        String betType = getPlayerSecondBetType();
-        rollDice();
 
-    }
+
 
     public int checkWallet(){
         return player.getChips();
@@ -265,7 +271,7 @@ public class Craps extends Game {
             } else {
                 System.out.println("Invalid answer.  Please type \'yes\' to play again or \'no\' to return to the Main Menu.");
             }
-        } while (!answer.equalsIgnoreCase("yes") || !answer.equalsIgnoreCase("no"));
+        } while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no"));
         return play;
     }
 
@@ -277,17 +283,14 @@ public class Craps extends Game {
     public DiceManager getDiceManager() {
         return diceManager;
     }
-    public void setDiceManager(DiceManager diceManager) {
-        this.diceManager = diceManager;
-    }
 
     public Person getPlayer() {
         return player;
     }
+
     public void setPlayer(Person player) {
         this.player = player;
     }
-
 
     public void setPoint(int point) { this.point = point; }
     public int getPoint() { return point; }
@@ -302,5 +305,5 @@ public class Craps extends Game {
 
     public ArrayList<HashMap<Integer,Double>> getBetPayouts() { return betPayouts; }
 
-    public LinkedHashMap<String, HashMap<Integer, Integer>> getComePointsBets() { return comePointsBets; }
+    public LinkedHashMap<String, HashMap<Integer, Integer>> getOddsComePointsBets() { return oddsComePointsBets; }
 }

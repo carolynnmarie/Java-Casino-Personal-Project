@@ -19,14 +19,17 @@ public class Card {
                         (x==11)? Rank.JACK: (x==12)?Rank.QUEEN: Rank.KING;
         int y = (int)Math.ceil(Math.random()*4);
         this.suit = (y==1)?Suit.DIAMONDS: (y==2)?Suit.CLUBS: (y==3)?Suit.SPADES: Suit.HEARTS;
-        }
+    }
+
 
 
     public String getSuitWord(){
         return suit.getSuitWord();
     }
 
-    public String getSuitSymbol(){ return suit.getSuitSymbol();}
+    public String getSuitSymbol(){
+        return suit.getSuitSymbol();
+    }
 
     public Integer getRank(){
         return rank.rankValue();
@@ -34,6 +37,6 @@ public class Card {
 
     @Override
     public String toString(){
-        return rank.rankName() + suit.getSuitSymbol();
+        return getRank() + getSuitSymbol();
     }
 }

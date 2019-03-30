@@ -5,8 +5,8 @@ import io.carolynn.casino.cards.Card;
 import io.carolynn.casino.cards.Deck;
 import io.carolynn.casino.cards.Rank;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class GoFish extends CardGame {
 
@@ -33,23 +33,15 @@ public class GoFish extends CardGame {
 
     public Deck getHouseDeck() { return houseDeck; }
 
-    public ArrayList<Card> getPlayerHand() {
-        return playerHand;
-    }
+    public ArrayList<Card> getPlayerHand() { return playerHand; }
 
     public void setPlayerHand(ArrayList<Card> playerHand) { this.playerHand = playerHand; }
 
-    public void setDealerHand(ArrayList<Card> dealerHand) {
-        this.dealerHand = dealerHand;
-    }
+    public void setDealerHand(ArrayList<Card> dealerHand) { this.dealerHand = dealerHand; }
 
-    public void setPlayerBook(int playerBook) {
-        this.playerBook = playerBook;
-    }
+    public void setPlayerBook(int playerBook) { this.playerBook = playerBook; }
 
-    public void setDealerBook(int dealerBook) {
-        this.dealerBook = dealerBook;
-    }
+    public void setDealerBook(int dealerBook) { this.dealerBook = dealerBook; }
 
     @Override
     public void start() {
@@ -89,7 +81,7 @@ public class GoFish extends CardGame {
         do {
             System.out.println("Your turn! Your hand is: " + displayCards(playerHand) + "\nWhat card value do you want to " +
                     "request from the dealer?");
-            String userChoice = scanner.nextLine().toLowerCase();
+            String userChoice = scanner.nextLine();
             numberValue = Rank.inputValueConversion(userChoice);
         } while(numberValue == 0);
         return numberValue;
@@ -114,16 +106,19 @@ public class GoFish extends CardGame {
 
     public int playerGoFish(int desiredCard, ArrayList<Card> hand){
         cardCountCheck();
-        int wish = 0;
+        int wish;
         Card card = houseDeck.drawCard();
         hand.add(card);
-        System.out.println("\nCard fished: " + card.toString());
+        System.out.println();
+        StringBuilder builder = new StringBuilder("\nCard fished: " + card.toString());
         if (card.getRank() == desiredCard) {
             wish = 1;
-            System.out.println("You fished your wish! You get to take another turn");
+            builder.append("You fished your wish! You get to take another turn");
         } else {
-            System.out.println("You didn't fish your wish.");
+            builder.append("You didn't fish your wish.");
+            wish = 0;
         }
+        System.out.println(builder.toString());
         playerBookRemoval(card.getRank());
         return wish;
     }
@@ -132,12 +127,7 @@ public class GoFish extends CardGame {
         if (bookCountCheck(cardValue, playerHand)) {
             System.out.println("Congratulations, you now have 4 " + cardValue + "s! You scored a book!");
             setPlayerBook(playerBook + 1);
-            ArrayList<Card> book = new ArrayList<>();
-            for (Card card1 : playerHand) {
-                if(card1.getRank() == cardValue) {
-                    book.add(card1);
-                }
-            }
+            List<Card> book = playerHand.stream().filter(card -> card.getRank()==cardValue).collect(Collectors.toList());
             playerHand.removeAll(book);
         }
     }
@@ -145,7 +135,8 @@ public class GoFish extends CardGame {
     public void dealerTurn(){
         int cards = 0;
         do {
-            int dealerCard = dealerHand.get((int)Math.floor(Math.random()*dealerHand.size())).getRank();
+            Collections.shuffle(dealerHand);
+            int dealerCard = dealerHand.get(0).getRank();
             cards = dealerAsks(dealerCard);
         }while(cards != 0 && cardCountCheck());
     }
@@ -190,43 +181,24 @@ public class GoFish extends CardGame {
         if (bookCountCheck(cardValue, dealerHand)) {
             System.out.println("Dealer now has 4 " + cardValue + "s! Dealer scored a book!");
             setDealerBook(dealerBook + 1);
-            ArrayList<Card> book = new ArrayList<>();
-            for (Card card1 : dealerHand) {
-                if (card1.getRank() == cardValue)
-                    book.add(card1);
-            }
+            List<Card> book = dealerHand.stream().filter(card -> card.getRank() == cardValue).collect(Collectors.toList());
             dealerHand.removeAll(book);
         }
     }
 
-
     public int doYouHaveCard(int cardValue, ArrayList<Card> hand) {
-        int howManyCards = 0;
-        for (Card card: hand) {
-            if (cardValue == card.getRank()) {
-                howManyCards++;
-            }
-        }
-        return howManyCards;
+        return (int)hand.stream().filter(card -> card.getRank()==cardValue).count();
     }
 
     public void swapCards(int userInput, ArrayList<Card> giver, ArrayList<Card> receiver){
-        ArrayList<Card> cards = new ArrayList<>();
-        for(Card card:giver){
-            if(userInput == card.getRank()){
-                cards.add(card);
-            }
-        }
+        List<Card> cards = giver.stream().filter(card -> card.getRank()==userInput).collect(Collectors.toList());
         giver.removeAll(cards);
         receiver.addAll(cards);
     }
 
 
     private boolean bookCountCheck(int cardValue, ArrayList<Card> hand){
-        int count = 0;
-        for(Card card:hand){
-            if(card.getRank() == cardValue) count++;
-        }
+        int count = (int) hand.stream().filter(card->card.getRank()==cardValue).count();
         if(count == 4) return true;
         return false;
     }
@@ -239,9 +211,7 @@ public class GoFish extends CardGame {
 
     public String displayCards(ArrayList<Card> hand){
         StringBuilder builder = new StringBuilder();
-        for(Card card: hand){
-            builder.append(card.toString()).append(" ");
-        }
+        hand.stream().forEach(card -> builder.append(card.toString()).append(" "));
         return builder.toString();
     }
 

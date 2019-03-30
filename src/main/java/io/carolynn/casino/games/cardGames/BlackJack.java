@@ -61,8 +61,8 @@ public class BlackJack extends CardGame {
     public void runGame() {
         Deck playerHand = dealHands(2);
         Deck dealerHand = dealHands(2);
-        String dealerTwoCards = dealerHand.getDeck().get(0).toString() + dealerHand.getDeck().get(1).toString();
-        System.out.println("Dealer's first two cards are: " + dealerTwoCards);
+        //String dealerTwoCards = dealerHand.getDeck().get(0).toString() + " " + dealerHand.getDeck().get(1).toString();
+        System.out.println("Dealer's top card is " + dealerHand.getDeck().get(0).toString());
         int playerCount = playerTurn(playerHand);
         if(playerCount<21) {
             dealerHand = dealerTurn(dealerHand);
