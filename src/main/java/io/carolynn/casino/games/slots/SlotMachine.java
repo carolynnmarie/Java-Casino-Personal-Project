@@ -26,16 +26,41 @@ public class SlotMachine extends Game {
         end();
     }
 
-
     public boolean pullMachine(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Your current chip balance is" + player.getChips() + "\nPress enter to play slots");
+        System.out.println("Your current chip balance is" + player.getChips() + "\nPress enter to play slots. Type any other key" +
+                "to exit.");
         String play = scanner.nextLine();
         if(play.equals("")) return true;
         return false;
     }
 
-    public String [] getResults(){
+    @Override
+    public void runGame() {
+        player.removeChips(1);
+        int payout = 0;
+        String result = "";
+        String [] spinResults = Spin();
+        StringBuilder payoutResult = new StringBuilder();
+        payoutResult.append("Your spin was: ")
+                .append(spinResults[0] + ", ")
+                .append(spinResults[1] + ", ")
+                .append(spinResults[2] + ", ");
+        if(spinResults[0].equals(spinResults[1]) && spinResults[0].equals(spinResults[2])){
+            result = spinResults[0];
+            payout = getPayout(result);
+            payoutResult.append("\nYou got 3 " + result + " in a row!")
+                    .append("Your payout is " + payout)
+                    .append("! Your balance is " + player.getChips());
+            player.addChips(payout);
+        } else {
+            payoutResult.append("\nSorry, you did not get 3 in a row.  Your balance is now ")
+                    .append(player.getChips());
+        }
+        System.out.println(payoutResult);
+    }
+
+    public String [] Spin(){
         int fruit1Index = (int)Math.round(Math.random()*(fruits.length-1));
         String fruit1 = fruits[fruit1Index].getSymbol();
         int fruit2Index = (int)Math.round(Math.random()*(fruits.length-1));
@@ -54,27 +79,6 @@ public class SlotMachine extends Game {
             }
         }
         return payout;
-    }
-
-    @Override
-    public void runGame() {
-        player.removeChips(1);
-        int payout = 0;
-        String result = "";
-        String [] spinResults = getResults();
-        String payoutResult ="Your spin was: " + spinResults[0] + ", " + spinResults[1] + ", " + spinResults[2];
-        if(spinResults[0].equals(spinResults[1]) && spinResults[0].equals(spinResults[2])){
-            result = spinResults[0];
-            payout = getPayout(result);
-        }
-        player.addChips(payout);
-        if(payout == 0){
-            payoutResult += "\nSorry, you did not get 3 in a row.  Your balance is now " + player.getChips();
-        } else {
-            payoutResult += "\nYou got 3 " + result + " in a row! Your payout is " + payout + "! Your balance is "
-                    + player.getChips();
-        }
-        System.out.println(payoutResult);
     }
 
     @Override

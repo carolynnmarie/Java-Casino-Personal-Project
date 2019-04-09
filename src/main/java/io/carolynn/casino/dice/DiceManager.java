@@ -20,7 +20,7 @@ public class DiceManager {
             int x =  (int) Math.ceil(Math.random() * 6);
             DieFace die = (x==0)?DieFace.ONE: (x==1)?DieFace.ONE: (x==2)?DieFace.TWO: (x==3)?DieFace.THREE: (x==4)?DieFace.FOUR:
                     (x==5)? DieFace.FIVE: DieFace.SIX;
-            this.dice[i].setDieFace(die);
+            dice[i].setDieFace(die);
         }
     }
 
@@ -28,7 +28,7 @@ public class DiceManager {
         int x =  (int) Math.ceil(Math.random() * 6);
         DieFace die = (x==0)?DieFace.ONE: (x==1)?DieFace.ONE: (x==2)?DieFace.TWO: (x==3)?DieFace.THREE: (x==4)?DieFace.FOUR:
                 (x==5)? DieFace.FIVE: DieFace.SIX;
-        this.dice[index].setDieFace(die);
+        dice[index].setDieFace(die);
         return x;
     }
 
@@ -54,7 +54,6 @@ public class DiceManager {
         for (Dice die : dice) {
             builder.append(die.getDieValue())
                     .append(", ");
-
         }
         return builder.toString();
     }

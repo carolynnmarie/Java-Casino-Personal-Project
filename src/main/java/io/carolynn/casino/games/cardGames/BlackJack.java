@@ -41,20 +41,29 @@ public class BlackJack extends CardGame {
 
     @Override
     public void start() {
+        System.out.println("Welcome to BlackJack, " + getPlayerName() + ".");
+        if(player.getChips()>=5){
+            makeBet();
+            runGame();
+        } else {
+            System.out.println("Sorry, you have insufficent funds. Returning to Main Menu.");
+        }
+    }
+
+    private void makeBet(){
         Scanner input = new Scanner(System.in);
         int chips = 0;
         do {
-            System.out.println("Welcome to BlackJack, " + getPlayerName() + ". Your current chip total is " + getPlayer().getChips()
+            System.out.println(" Your current chip total is " + player.getChips()
                     + ". Please enter the number of chips you would like to bet");
             chips = input.nextInt();
-            if (chips <= getPlayer().getChips()) {
+            if (chips <= player.getChips()) {
                 setBet(chips);
-                getPlayer().removeChips(getBet());
+                player.removeChips(getBet());
             } else {
-                System.out.println("Insufficient funds.  You currently have: " + getPlayer().getChips() + "Enter new amount");
+                System.out.println("Insufficient funds. Please enter an amount less than" + player.getChips());
             }
-        } while (chips > getPlayer().getChips());
-        runGame();
+        } while (chips > player.getChips());
     }
 
     @Override
@@ -73,7 +82,6 @@ public class BlackJack extends CardGame {
         }
         end();
     }
-
 
 
     public int playerTurn(Deck playerHand){
@@ -115,6 +123,7 @@ public class BlackJack extends CardGame {
         dealerBustOrBlackJack(dealerSum);
         return dealerHand;
     }
+
     public int valueSum(Deck deck){
         int cardValue;
         int totalValue = 0;

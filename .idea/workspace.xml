@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="943598cc-701a-4e97-8faf-9ab35b72208f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/Craps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/Craps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -19,29 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Craps.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Craps.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/Craps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="369">
-              <caret line="298" lean-forward="true" selection-start-line="298" selection-end-line="298" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CrapsBetTypes.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/CrapsBetTypes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DiceManager.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1005">
-              <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
+            <state relative-caret-position="950">
+              <caret line="269" column="91" selection-start-line="269" selection-start-column="91" selection-end-line="269" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -49,8 +34,47 @@
       <file leaf-file-name="Dice.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/Dice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="120">
+              <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DiceManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-246">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SlotMachine.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-681">
+              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -58,7 +82,7 @@
       <file leaf-file-name="DieFace.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DieFace.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
+            <state relative-caret-position="311">
               <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
             </state>
           </provider>
@@ -67,20 +91,8 @@
       <file leaf-file-name="War.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
+            <state relative-caret-position="1050">
               <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SlotMachine.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="926">
-              <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +100,8 @@
       <file leaf-file-name="GoFish.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="594">
+              <caret line="213" column="83" selection-start-line="213" selection-start-column="83" selection-end-line="213" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -97,17 +109,8 @@
       <file leaf-file-name="BlackJack.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CardGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/CardGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="7">
+              <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -146,11 +149,9 @@
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/casinoSignInComponent.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/window/CasinoSignInComponent.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/carolynn/casino/PersonTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Card.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/Main.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/carolynn/casino/cards/DeckTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Suit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Rank.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Deck.java" />
         <option value="$PROJECT_DIR$/src/test/java/io/carolynn/casino/games/GoFishTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -173,13 +174,15 @@
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/Casino.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/Pair.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/Dice.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/CardGame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java" />
-        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Card.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Rank.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java" />
         <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/Craps.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java" />
       </list>
     </option>
   </component>
@@ -230,6 +233,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -270,6 +274,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="casino" type="462c0819:PsiDirectoryNode" />
+              <item name="cards" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyCasino" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyCasino" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="casino" type="462c0819:PsiDirectoryNode" />
               <item name="dice" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,7 +302,27 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="casino" type="462c0819:PsiDirectoryNode" />
               <item name="games" type="462c0819:PsiDirectoryNode" />
+              <item name="cardGames" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyCasino" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyCasino" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="casino" type="462c0819:PsiDirectoryNode" />
+              <item name="games" type="462c0819:PsiDirectoryNode" />
               <item name="diceGames" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyCasino" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyCasino" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="casino" type="462c0819:PsiDirectoryNode" />
+              <item name="games" type="462c0819:PsiDirectoryNode" />
+              <item name="slots" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MyCasino" type="b2602c69:ProjectViewProjectNode" />
@@ -300,7 +333,6 @@
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -314,7 +346,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -532,7 +564,8 @@
       <workItem from="1544732312434" duration="184000" />
       <workItem from="1546890524596" duration="1068000" />
       <workItem from="1553812306813" duration="6854000" />
-      <workItem from="1553887358211" duration="8103000" />
+      <workItem from="1553887358211" duration="12703000" />
+      <workItem from="1554842139097" duration="2612000" />
     </task>
     <servers />
   </component>
@@ -569,11 +602,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239571000" />
+    <option name="totallyTimeSpent" value="246783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="70" y="23" width="1334" height="811" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5016949" side_tool="true" weight="0.28851542" />
@@ -594,8 +626,8 @@
       <window_info anchor="bottom" id="Version Control" order="12" />
       <window_info anchor="bottom" id="Run" order="3" sideWeight="0.4995925" weight="0.4089636" />
       <window_info anchor="bottom" id="Spring" order="11" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49830508" visible="true" weight="0.28711486" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21671827" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49830508" visible="true" weight="0.28711486" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21981424" />
       <window_info anchor="right" id="Bean Validation" order="8" weight="0.32899493" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="7" />
@@ -747,45 +779,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/io/carolynn/casino/WindowTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Card.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Suit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Rank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Deck.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -828,13 +825,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -905,62 +895,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DieFace.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/Dice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="67" column="34" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/CardGame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="926">
-          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -971,10 +909,104 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Deck.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="990">
+          <caret line="67" column="5" selection-start-line="67" selection-start-column="5" selection-end-line="67" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Card.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Suit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/cards/Rank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="5" selection-start-line="38" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/GoFish.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="213" column="83" selection-start-line="213" selection-start-column="83" selection-end-line="213" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/BlackJack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="107" column="44" selection-start-line="107" selection-start-column="44" selection-end-line="107" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/cardGames/War.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/diceGames/Craps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="298" lean-forward="true" selection-start-line="298" selection-end-line="298" />
+        <state relative-caret-position="950">
+          <caret line="269" column="91" selection-start-line="269" selection-start-column="91" selection-end-line="269" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/Dice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="28" lean-forward="true" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DiceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-246">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/dice/DieFace.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/slots/SlotMachine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-681">
+          <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/carolynn/casino/games/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="10" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="59" selection-start-line="12" selection-start-column="59" selection-end-line="12" selection-end-column="59" />
         </state>
       </provider>
     </entry>

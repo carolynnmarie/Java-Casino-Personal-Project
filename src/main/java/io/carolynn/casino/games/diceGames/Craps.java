@@ -100,14 +100,12 @@ public class Craps extends Game {
         } else if(diceValue == 12) {
             builder.append(". Pass Line looses and Don't Pass bets are pushed to next round.\n")
                     .append(passLineBetResult("pass",false));
-            System.out.println(builder.toString());
         } else {
             builder.append(". The point is now ")
                     .append(diceValue);
-            System.out.println(builder.toString());
             point = diceValue;
-
         }
+        System.out.println(builder.toString());
     }
 
     public void placeInitialBet(){
@@ -160,7 +158,6 @@ public class Craps extends Game {
             makePlaceBet(betType, bet);
         } else if (betType.equalsIgnoreCase("odds")){
             String oddsType = getOddsType();
-
             makeOddsBets(oddsType);
         }
     }
@@ -195,6 +192,7 @@ public class Craps extends Game {
         return type;
     }
 
+    //Method incomplete
     private void makeOddsBets(String oddsType){
         if(oddsType.equalsIgnoreCase("pass")  && oddsPassBets.get("pass") != 0){
             oddsPassBets.put("pass",bet);
@@ -269,7 +267,7 @@ public class Craps extends Game {
             } else if (answer.equalsIgnoreCase("no")){
                 play=false;
             } else {
-                System.out.println("Invalid answer.  Please type \'yes\' to play again or \'no\' to return to the Main Menu.");
+                System.out.println("Invalid answer.  Please type 'yes' to play again or 'no' to return to the Main Menu.");
             }
         } while (!answer.equalsIgnoreCase("yes") && !answer.equalsIgnoreCase("no"));
         return play;
