@@ -1,6 +1,7 @@
 package io.carolynn.casino.cards;
 
 
+import java.util.*;
 
 public class Card {
 
@@ -38,5 +39,20 @@ public class Card {
     @Override
     public String toString(){
         return getRank() + getSuitSymbol();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Card)) return false;
+        Card card = (Card) o;
+        return suit == card.suit &&
+                getRank() == card.getRank();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(suit, getRank());
     }
 }

@@ -8,12 +8,12 @@ import org.junit.Test;
 
 public class CrapsBetTypesTest {
 
-    @Test
-    public void betTypesTest(){
-        Person person = new Person("Luis");
-        Craps craps = new Craps(person);
-        CrapsBetTypes actual = craps.getBetType(1);
-        CrapsBetTypes expected = CrapsBetTypes.COME_BET;
-        Assert.assertEquals(expected, actual);
-    }
+//    @Test
+//    public void betTypesTest(){
+//        Person person = new Person("Luis");
+//        Craps craps = new Craps(person);
+//        CrapsBetTypes actual = craps.getBetType(1);
+//        CrapsBetTypes expected = CrapsBetTypes.COME_BET;
+//        Assert.assertEquals(expected, actual);
+//    }
 }

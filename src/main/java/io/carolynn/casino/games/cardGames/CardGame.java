@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public abstract class CardGame extends Game {
 
-    private Deck houseDeck;
-
+    protected Deck houseDeck;
+    protected Person dealer;
 
     public CardGame(Person player){
         super(player);
@@ -21,11 +21,7 @@ public abstract class CardGame extends Game {
     public abstract void start();
     public abstract void end();
 
-    public Integer checkDeckSize(ArrayList<Card> hand){
-        return hand.size();
-    }
-
-    public Deck dealHands(Integer initialHand){
+    public Deck dealCards(Integer initialHand){
         ArrayList<Card> handCards = new ArrayList<>();
         for(int i = 0; i< initialHand; i++){
             handCards.add(houseDeck.getDeck().remove(i));
@@ -33,20 +29,16 @@ public abstract class CardGame extends Game {
         return new Deck(handCards);
     }
 
-    public Person getPlayer() {
-        return player;
-    }
-
     public void setPlayer(Person player) {
         this.player = player;
     }
 
-    public Person getDealer() {
-        return dealer;
-    }
-
     public Deck getHouseDeck() {
         return houseDeck;
+    }
+
+    public Person getDealer(){
+        return dealer;
     }
 
 }

@@ -8,15 +8,10 @@ import java.util.Scanner;
 
 public class BlackJack extends CardGame {
 
-
-    private Deck houseDeck;
     private int bet;
-
 
     public BlackJack(Person player) {
         super(player);
-        this.dealer = new Person("Dealer");
-        this.houseDeck = new Deck();
         this.bet = 0;
     }
 
@@ -26,19 +21,6 @@ public class BlackJack extends CardGame {
     public int getBet(){
         return bet;
     }
-
-    public String getPlayerName(){
-        return  super.getPlayer().getName();
-    }
-    public Person getPlayer(){
-        return super.getPlayer();
-    }
-
-    @Override
-    public Deck getHouseDeck() {
-        return houseDeck;
-    }
-
     @Override
     public void start() {
         System.out.println("Welcome to BlackJack, " + getPlayerName() + ".");
@@ -52,7 +34,7 @@ public class BlackJack extends CardGame {
 
     private void makeBet(){
         Scanner input = new Scanner(System.in);
-        int chips = 0;
+        int chips;
         do {
             System.out.println(" Your current chip total is " + player.getChips()
                     + ". Please enter the number of chips you would like to bet");
@@ -68,9 +50,8 @@ public class BlackJack extends CardGame {
 
     @Override
     public void runGame() {
-        Deck playerHand = dealHands(2);
-        Deck dealerHand = dealHands(2);
-        //String dealerTwoCards = dealerHand.getDeck().get(0).toString() + " " + dealerHand.getDeck().get(1).toString();
+        Deck playerHand = dealCards(2);
+        Deck dealerHand = dealCards(2);
         System.out.println("Dealer's top card is " + dealerHand.getDeck().get(0).toString());
         int playerCount = playerTurn(playerHand);
         if(playerCount<21) {
@@ -82,7 +63,6 @@ public class BlackJack extends CardGame {
         }
         end();
     }
-
 
     public int playerTurn(Deck playerHand){
         Scanner scan = new Scanner(System.in);
@@ -138,8 +118,9 @@ public class BlackJack extends CardGame {
         }
         return totalValue;
     }
+
     private void dealerBustOrBlackJack(int dealerSum){
-        String d = "";
+        String d;
         if(dealerSum==21){
             d ="Dealer gets BlackJack! You lose your bet of " + getBet();
         } else if(dealerSum>21) {
@@ -152,7 +133,7 @@ public class BlackJack extends CardGame {
     }
 
     public String bustOrBlackJack( int handCount) {
-        String bOrB = "";
+        String bOrB;
         if (handCount > 21) {
             bOrB = "Bust!" + " total card value is " + handCount + ". You lost " + getBet() + " chips.";
         } else if (handCount == 21) {

@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 public class GoFish extends CardGame {
 
-    private Deck houseDeck;
+
     private ArrayList<Card> playerHand;
     private ArrayList<Card> dealerHand;
     private int playerBook;
@@ -19,7 +19,6 @@ public class GoFish extends CardGame {
 
     public GoFish(Person player){
         super(player);
-        this.houseDeck = new Deck();
         this.playerHand = new ArrayList<>();
         this.dealerHand = new ArrayList<>();
         this.playerBook = 0;
@@ -29,9 +28,6 @@ public class GoFish extends CardGame {
 
     public Person getPlayer() { return super.getPlayer(); }
 
-    public Person getDealer() { return dealer; }
-
-    public Deck getHouseDeck() { return houseDeck; }
 
     public ArrayList<Card> getPlayerHand() { return playerHand; }
 
@@ -45,11 +41,14 @@ public class GoFish extends CardGame {
 
     @Override
     public void start() {
+        System.out.println("**Welcome to Go Fish!**");
+        deal();
+        runGame();
+    }
+
+    public void deal(){
         playerHand = houseDeck.dealHand(7);
         dealerHand = houseDeck.dealHand(7);
-        System.out.println("**Welcome to Go Fish!**\n" +
-                "When choosing card enter 1 for Ace, 11 for Jack, 12 for Queen, 13 for King");
-        runGame();
     }
 
     @Override
@@ -64,7 +63,7 @@ public class GoFish extends CardGame {
         } catch (InterruptedException e){
             e.printStackTrace();
         }
-        whoWonTheGame();
+        determineWinner();
         end();
     }
 
@@ -216,7 +215,7 @@ public class GoFish extends CardGame {
     }
 
 
-    public void whoWonTheGame(){
+    public void determineWinner(){
         if (playerBook > dealerBook){
             System.out.println("**You Won!**\nYou won the game with a Book Score of " + playerBook +
                     "!\nDealer had a Book Score of " + dealerBook + "!");

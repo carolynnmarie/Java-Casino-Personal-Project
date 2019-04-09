@@ -13,8 +13,6 @@ public class Craps extends Game {
     private int diceValue;
     private int bet;
     private Scanner scanner;
-    private ArrayList<Integer> fieldValues;
-
     private LinkedHashMap<String, Integer> lineComeFieldBets;
     private ArrayList<String> lineComeFieldNames;
     private LinkedHashMap<String,Integer> oddsPassBets;
@@ -34,7 +32,6 @@ public class Craps extends Game {
         this.bet = 0;
         this.diceValue = 0;
         this.scanner = new Scanner(System.in);
-        this.fieldValues = new ArrayList<>(Arrays.asList(2, 3, 4, 9, 10, 11, 12));
         this.lineComeFieldBets = new LinkedHashMap<>();
         this.lineComeFieldNames = new ArrayList<>(Arrays.asList("pass","don't pass", "come","don't come", "field"));
         lineComeFieldNames.stream().forEach(e->lineComeFieldBets.put(e,0));
@@ -74,6 +71,9 @@ public class Craps extends Game {
         do{
             placeInitialBet();
             comeOutRoll();
+            if(point!=0){
+                phaseTwoRoll();
+            }
         } while (keepPlaying() && !insufficientFunds());
     }
 

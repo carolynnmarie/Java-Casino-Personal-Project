@@ -5,8 +5,7 @@ import io.carolynn.casino.cards.Deck;
 
 public abstract class Game {
 
-    public Person player;
-    public Person dealer;
+    protected Person player;
 
     public Game(){
 
@@ -14,10 +13,18 @@ public abstract class Game {
 
     public Game(Person player){
         this.player = player;
-        this.dealer = new Person("Dealer");
+
     }
 
     public abstract void start();
     public abstract void end();
     public abstract void runGame();
+
+    public Person getPlayer(){
+        return player;
+    }
+
+    public String getPlayerName(){
+        return player.getName();
+    }
 }

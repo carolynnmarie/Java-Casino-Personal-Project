@@ -16,8 +16,7 @@ import java.util.Arrays;
 public class GoFishTest {
 
     private Person player = new Person("Jack");
-    private Person dealer = new Person("Dealer");
-    private Deck houseDeck = new Deck();
+    //private Deck houseDeck = new Deck();
     GoFish goFish = new GoFish(player);
 
     Card card1 = new Card(Rank.QUEEN, Suit.HEARTS);
@@ -34,7 +33,7 @@ public class GoFishTest {
     @Test
     public void testConstructor(){
         int expected = 52;
-        int actual = houseDeck.getDeckSize();
+        int actual = goFish.getHouseDeck().getDeckSize();
         Assert.assertEquals(expected, actual);
     }
 
@@ -60,7 +59,7 @@ public class GoFishTest {
     public void testPlayerGoFish(){
         ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4, card5,card9));
         goFish.setPlayerHand(playerHand);
-        houseDeck.remove(playerHand);
+        goFish.getHouseDeck().remove(playerHand);
         int fish = goFish.playerGoFish(13, playerHand);
         int expected = 7;
         int actual = goFish.getPlayerHand().size();

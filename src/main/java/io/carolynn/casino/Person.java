@@ -10,14 +10,11 @@ public class Person {
 
     private String name;
     private int chips;
-    private ArrayList<Card> hand;
-    private int book;
 
 
     public Person(String name){
         this.name = name;
         this.chips = 0;
-        this.hand = new ArrayList<>();
     }
 
     public void setName(String name){
@@ -44,16 +41,5 @@ public class Person {
         this.chips -= chips;
     }
 
-    public ArrayList<Card> getHand() { return hand; }
-
-    public void setHand(ArrayList<Card> hand) { this.hand = hand; }
-
-    public int getBook() {
-        return book;
-    }
-
-    public void setBook(int book) {
-        this.book = book;
-    }
 
 }

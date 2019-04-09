@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class War extends CardGame {
 
-    private Deck houseDeck;
     private ArrayList<Card> playerHand;
     private ArrayList<Card> dealerHand;
     private ArrayList<Card> tableCards;
@@ -17,15 +16,26 @@ public class War extends CardGame {
 
     public War(Person player){
         super(player);
-        this.houseDeck = new Deck();
-        this.playerHand = houseDeck.dealHand(26);
-        this.dealerHand = houseDeck.getDeck();
+        this.playerHand = new ArrayList<>();
+        this.dealerHand = new ArrayList<>();
         this.tableCards = new ArrayList<>();
     }
 
-    @Override
-    public Deck getHouseDeck() {
-        return houseDeck;
+    public void setPlayerHand(ArrayList<Card> playerHand){
+        this.playerHand = playerHand;
+    }
+
+    public ArrayList<Card> getPlayerHand() {
+        return playerHand;
+    }
+
+    public ArrayList<Card> getDealerHand() {
+        return dealerHand;
+    }
+
+    public void setDealerHand(ArrayList<Card> dealerHand){
+        this.dealerHand = dealerHand;
+
     }
 
     @Override
@@ -33,6 +43,7 @@ public class War extends CardGame {
         String answer = "";
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to WAR!\nEnter\"exit\" at any time to exit the game.\nPress enter to flip your card");
+        dealCards();
         do {
             answer = scan.nextLine();
             if(!answer.equals("exit")) {
@@ -42,6 +53,10 @@ public class War extends CardGame {
         end();
     }
 
+    public void dealCards(){
+        playerHand = houseDeck.dealHand(26);
+        dealerHand = houseDeck.getDeck();
+    }
 
     public void runGame() {
         Card playerCard = playerHand.remove(0);
@@ -73,7 +88,7 @@ public class War extends CardGame {
         Card topDealerCard;
         Card topPlayerCard;
         do{
-            int numOfCards = determineNumberOfCardsPlayed(playerHand,dealerHand);
+            int numOfCards = getNumberOfCardsToPlay(playerHand,dealerHand);
             topDealerCard = dealerHand.get(numOfCards - 1);
             topPlayerCard = playerHand.get(numOfCards - 1);
             System.out.println("Dealer's top card: " + topDealerCard.toString() + ".\nYour top card: " + topPlayerCard.toString());
@@ -90,15 +105,13 @@ public class War extends CardGame {
             } else {
                 System.out.println("It's a tie, I Declare War again!");
             }
-        } while (topDealerCard == topPlayerCard && !checkIfEitherAreEmpty());
+        } while (topDealerCard.getRank() == topPlayerCard.getRank() && !checkIfEitherAreEmpty());
     }
 
 
-    public int determineNumberOfCardsPlayed(ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
+    public int getNumberOfCardsToPlay(ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
         return (playerHand.size() >= 3 && dealerHand.size() >= 3) ? 3 :
-                (playerHand.size()>=3 && dealerHand.size()<3) ? dealerHand.size() :
-                        (dealerHand.size()>=3 && playerHand.size()<3)?playerHand.size() :
-                                (dealerHand.size() < playerHand.size())? dealerHand.size(): playerHand.size();
+                (dealerHand.size() < playerHand.size())? dealerHand.size(): playerHand.size();
     }
 
     public boolean checkIfEitherAreEmpty(){
@@ -111,12 +124,11 @@ public class War extends CardGame {
 
     public void end() {
         String winner = "And the winner is ";
-        winner += (playerHand.size() < dealerHand.size())? "the dealer!": getPlayer().getName();
-        System.out.println(winner);
+        winner += (playerHand.size() < dealerHand.size())? "the dealer!": getPlayerName();
+        System.out.println(winner + "\nIf you want to play again, enter 'yes', or enter anything else to return to the casino");
         Scanner input = new Scanner(System.in);
         playerHand.clear();
         dealerHand.clear();
-        System.out.println("If you want to play again, enter 'yes', or enter anything else to return to the casino");
         if (input.nextLine().equalsIgnoreCase("yes")) {
             start();
         } else {
