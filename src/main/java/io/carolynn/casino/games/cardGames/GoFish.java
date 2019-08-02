@@ -28,7 +28,6 @@ public class GoFish extends CardGame {
 
     public Person getPlayer() { return super.getPlayer(); }
 
-
     public ArrayList<Card> getPlayerHand() { return playerHand; }
 
     public void setPlayerHand(ArrayList<Card> playerHand) { this.playerHand = playerHand; }
@@ -42,14 +41,11 @@ public class GoFish extends CardGame {
     @Override
     public void start() {
         System.out.println("**Welcome to Go Fish!**");
-        deal();
+        playerHand = houseDeck.dealHand(7);
+        dealerHand = houseDeck.dealHand(7);
         runGame();
     }
 
-    public void deal(){
-        playerHand = houseDeck.dealHand(7);
-        dealerHand = houseDeck.dealHand(7);
-    }
 
     @Override
     public void runGame() {
@@ -70,7 +66,19 @@ public class GoFish extends CardGame {
     public void userTurn(){
         int hasCard = 0;
         do{
-            hasCard = playerAsks(playerCardChoice());
+            int choice = (playerCardChoice());
+            hasCard = doYouHaveCard(choice, dealerHand);
+            if(hasCard == 1){
+                System.out.println("Dealer has a " + choice);
+                swapCards(choice,dealerHand,playerHand);
+            } else if(hasCard>1){
+                System.out.println("Dealer has " + hasCard + " " + choice + "s.");
+                swapCards(choice,dealerHand,playerHand);
+            } else if(hasCard == 0) {
+                System.out.println("Dealer has no " + choice + "s. Go Fish!");
+                hasCard = playerGoFish(choice, playerHand);
+            }
+            playerBookRemoval(choice);
         }while(hasCard != 0 && cardCountCheck());
     }
 
@@ -86,22 +94,6 @@ public class GoFish extends CardGame {
         return numberValue;
     }
 
-
-    public int playerAsks(int choice){
-        int hasCard = doYouHaveCard(choice, dealerHand);
-        if(hasCard == 1){
-            System.out.println("Dealer has a " + choice);
-            swapCards(choice,dealerHand,playerHand);
-        } else if(hasCard>1){
-            System.out.println("Dealer has " + hasCard + " " + choice + "s.");
-            swapCards(choice,dealerHand,playerHand);
-        } else if(hasCard == 0) {
-            System.out.println("Dealer has no " + choice + "s. Go Fish!");
-            hasCard = playerGoFish(choice, playerHand);
-        }
-        playerBookRemoval(choice);
-        return hasCard;
-    }
 
     public int playerGoFish(int desiredCard, ArrayList<Card> hand){
         cardCountCheck();
@@ -136,22 +128,16 @@ public class GoFish extends CardGame {
         do {
             Collections.shuffle(dealerHand);
             int dealerCard = dealerHand.get(0).getRank();
-            cards = dealerAsks(dealerCard);
+            cards = doYouHaveCard(dealerCard, playerHand);
+            if(cards >= 1){
+                System.out.println("Dealer takes your " + dealerCard + "s.");
+                swapCards(dealerCard,playerHand,dealerHand);
+            } else {
+                System.out.println("Dealer has to Go Fish!\n");
+                cards = dealerGoFish(dealerCard,dealerHand);
+            }
+            dealerBookRemoval(dealerCard);
         }while(cards != 0 && cardCountCheck());
-    }
-
-    public int dealerAsks(int dealerCard){
-        System.out.println("\nDealer's turn!  Do you have any " + dealerCard + "s?");
-        int cards = doYouHaveCard(dealerCard, playerHand);
-        if(cards >= 1){
-            System.out.println("Dealer takes your " + dealerCard + "s.");
-            swapCards(dealerCard,playerHand,dealerHand);
-        } else {
-            System.out.println("Dealer has to Go Fish!\n");
-            cards = dealerGoFish(dealerCard,dealerHand);
-        }
-        dealerBookRemoval(dealerCard);
-        return cards;
     }
 
 

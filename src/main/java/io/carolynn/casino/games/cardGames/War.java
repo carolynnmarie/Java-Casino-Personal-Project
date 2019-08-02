@@ -61,7 +61,6 @@ public class War extends CardGame {
     public void runGame() {
         Card playerCard = playerHand.remove(0);
         Card dealerCard = dealerHand.remove(0);
-
         tableCards.add(playerCard);
         tableCards.add(dealerCard);
         System.out.println("Your card: " + playerCard.toString() + "  Dealer's card: " + dealerCard.toString());
@@ -88,7 +87,8 @@ public class War extends CardGame {
         Card topDealerCard;
         Card topPlayerCard;
         do{
-            int numOfCards = getNumberOfCardsToPlay(playerHand,dealerHand);
+            int numOfCards = (playerHand.size() >= 3 && dealerHand.size() >= 3) ? 3 :
+                    (dealerHand.size() < playerHand.size())? dealerHand.size(): playerHand.size();
             topDealerCard = dealerHand.get(numOfCards - 1);
             topPlayerCard = playerHand.get(numOfCards - 1);
             System.out.println("Dealer's top card: " + topDealerCard.toString() + ".\nYour top card: " + topPlayerCard.toString());
@@ -108,11 +108,6 @@ public class War extends CardGame {
         } while (topDealerCard.getRank() == topPlayerCard.getRank() && !checkIfEitherAreEmpty());
     }
 
-
-    public int getNumberOfCardsToPlay(ArrayList<Card> playerHand, ArrayList<Card> dealerHand){
-        return (playerHand.size() >= 3 && dealerHand.size() >= 3) ? 3 :
-                (dealerHand.size() < playerHand.size())? dealerHand.size(): playerHand.size();
-    }
 
     public boolean checkIfEitherAreEmpty(){
         if(playerHand.size() == 0 || dealerHand.size() == 0){

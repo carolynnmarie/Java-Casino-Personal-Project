@@ -92,16 +92,12 @@ public class Craps extends Game {
                     "To make a bet on the Don't Pass Line, type 'don't pass'.");
             answer = scanner.nextLine().toLowerCase();
             getBetAmount();
-            if(answer.equals("pass")){
-                lineComeFieldBets.put("pass",bet);
-                break;
-            } else if (answer.equals("don't pass")){
-                lineComeFieldBets.put("don't pass",bet);
-                break;
+            if(answer.equals("pass") || answer.equals("don't pass")){
+                lineComeFieldBets.put(answer,bet);
             } else {
                 System.out.println("Invalid Input");
             }
-        } while (true);
+        } while (!answer.equals("pass") && !answer.equals("don't pass"));
     }
 
     public void phaseTwoRoll(){
@@ -111,15 +107,14 @@ public class Craps extends Game {
 
     }
 
-
     public String getPhaseTwoBetType(){
         ArrayList<String> betTypes = new ArrayList<>(Arrays.asList("pass","don't pass","come","don't come","field","pass odds",
                 "don't pass odds", "come point odds", "don't come point odds", "place win","place lose"));
         String answer = "";
+        StringBuilder builder = new StringBuilder();
+        betTypes.stream().forEach(e->builder.append(e).append(", "));
         do {
-            System.out.println("What type of bet would you like to place for phase two? Your options are: " +
-                    "\npass, don't pass, come, don't come, field, pass odds, don't pass odds, come point odds, " +
-                    "don't come point odds, place win, place lose");
+            System.out.println("What type of bet would you like to place for phase two? Your options are: " + builder.toString());
             answer = scanner.nextLine().toLowerCase();
             if(!betTypes.contains(answer)){
                 System.out.println("Invalid input. ");
@@ -135,9 +130,10 @@ public class Craps extends Game {
             lineComeFieldBets.put(betType,bet);
         } else if (betType.equals("place win")|| betType.equals("place lose")){
             makePlaceBet(betType, bet);
-        } else if (betType.equals("pass odds") || betType.equals("don't pass odds") || betType.equals("come point odds")
-                || betType.equals("don't come point odds")){
-            makeOddsBets(betType);
+        } else if (betType.equals("pass odds") || betType.equals("don't pass odds")){
+            passDontPassOddsBets.put(betType,bet);
+        } else if (betType.equals("come point odds") || betType.equals("don't come point odds")){
+
         }
     }
 
@@ -155,42 +151,23 @@ public class Craps extends Game {
     }
 
 
-    //Method incomplete
-    private void makeOddsBets(String oddsType){
-        if(oddsType.equals("pass odds")){
-
-        } else if (oddsType.equals("don't pass odds")){
-
-        } else if (oddsType.equals("come point odds")){
-
-        } else if (oddsType.equals("don't come point odds")){
-
-        } else {
-            System.out.println("Invalid input");
-        }
-    }
-
     public void makePlaceBet(String oddsType, int bet){
         System.out.println("What number would you like to put your bet on? 4, 5, 6, 7, 8, 9, or 10");
         int point = scanner.nextInt();
         scanner.nextLine();
-        for(Map.Entry<String,HashMap<Integer,Integer>> entry: placeBets.entrySet()){
-            if(oddsType.equals(entry.getKey())){
-                entry.getValue().put(point,bet);
-            }
-        }
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(point, bet);
+        placeBets.put(oddsType,map);
     }
 
-//    public int betOnPoint(ArrayList<String> choices){
-//        Scanner scan = new Scanner(System.in);
-//        StringBuilder builder = new StringBuilder();
-//        for(String item: choices){
-//            builder.append(item);
-//        }
-//        System.out.println("What number would you like to place your bet on?" + builder.toString());
-//        return scan.nextInt();
-//    }
+    //incomplete
+    public void makeComeOddsBets(String oddsType){
+        if (oddsType.equals("come point odds")){
 
+        } else if (oddsType.equals("don't come point odds")){
+
+        }
+    }
 
     public String passLineBetResult(String betType, boolean winLose){
         String result = "";
@@ -228,7 +205,7 @@ public class Craps extends Game {
             if(answer.equals("yes")){
                 break;
             } else if (answer.equals("no")){
-                play=false;
+                play = false;
             } else {
                 System.out.println("Invalid answer.  Please type 'yes' to play again or 'no' to return to the Main Menu.");
             }

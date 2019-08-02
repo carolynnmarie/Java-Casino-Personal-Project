@@ -28,7 +28,7 @@ public class BlackJack extends CardGame {
             makeBet();
             runGame();
         } else {
-            System.out.println("Sorry, you have insufficent funds. Returning to Main Menu.");
+            System.out.println("Sorry, you have insufficient funds. Returning to Main Menu.");
         }
     }
 
@@ -39,11 +39,12 @@ public class BlackJack extends CardGame {
             System.out.println(" Your current chip total is " + player.getChips()
                     + ". Please enter the number of chips you would like to bet");
             chips = input.nextInt();
+            input.nextLine();
             if (chips <= player.getChips()) {
                 setBet(chips);
                 player.removeChips(getBet());
             } else {
-                System.out.println("Insufficient funds. Please enter an amount less than" + player.getChips());
+                System.out.println("Insufficient funds. Please enter an amount less than " + player.getChips());
             }
         } while (chips > player.getChips());
     }
