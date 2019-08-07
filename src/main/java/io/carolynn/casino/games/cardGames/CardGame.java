@@ -22,10 +22,7 @@ public abstract class CardGame extends Game {
     public abstract void end();
 
     public Deck dealCards(Integer initialHand){
-        ArrayList<Card> handCards = new ArrayList<>();
-        for(int i = 0; i< initialHand; i++){
-            handCards.add(houseDeck.getDeck().remove(i));
-        }
+        ArrayList<Card> handCards = houseDeck.dealHand(initialHand);
         return new Deck(handCards);
     }
 

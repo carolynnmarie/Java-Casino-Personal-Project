@@ -34,6 +34,10 @@ public class Deck {
       deck.add(card);
     }
 
+    public void addCards(ArrayList<Card> cards){
+        deck.addAll(cards);
+    }
+
     public Card drawCard(){
         return deck.remove(0);
     }
@@ -75,7 +79,7 @@ public class Deck {
         return deck.size();
     }
 
-    public ArrayList<Card> remove(ArrayList<Card> cards){
+    public ArrayList<Card> removeCards(ArrayList<Card> cards){
         ArrayList<Card> list = new ArrayList<>();
         for(Card card: deck){
             for(Card hand: cards){
@@ -87,6 +91,11 @@ public class Deck {
         deck.removeAll(list);
         return deck;
     }
+
+    public Card removeCard(int index){
+        return deck.remove(index);
+    }
+
 
     @Override
     public String toString(){

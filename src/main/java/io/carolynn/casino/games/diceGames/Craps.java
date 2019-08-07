@@ -197,7 +197,6 @@ public class Craps extends Game {
 
     public boolean keepPlaying(){
         System.out.println("Would you like to play again? yes/no");
-        Scanner scanner = new Scanner(System.in);
         String answer = "";
         boolean play = true;
         do{

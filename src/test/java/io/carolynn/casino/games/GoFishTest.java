@@ -2,14 +2,12 @@ package io.carolynn.casino.games;
 
 import io.carolynn.casino.Person;
 import io.carolynn.casino.cards.Card;
-import io.carolynn.casino.cards.Deck;
 import io.carolynn.casino.cards.Rank;
 import io.carolynn.casino.cards.Suit;
 import io.carolynn.casino.games.cardGames.GoFish;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.net.CacheRequest;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -59,7 +57,7 @@ public class GoFishTest {
     public void testPlayerGoFish(){
         ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4, card5,card9));
         goFish.setPlayerHand(playerHand);
-        goFish.getHouseDeck().remove(playerHand);
+        goFish.getHouseDeck().removeCards(playerHand);
         int fish = goFish.playerGoFish(13, playerHand);
         int expected = 7;
         int actual = goFish.getPlayerHand().size();
