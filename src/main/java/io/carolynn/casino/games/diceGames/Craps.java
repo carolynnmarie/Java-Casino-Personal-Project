@@ -13,6 +13,8 @@ public class Craps extends Game {
     private int diceValue;
     private int bet;
     private Scanner scanner;
+    private HashMap<Integer,Integer> comePoints;
+    private HashMap<Integer,Integer> dontComePoints;
     private HashMap<String, Integer> lineComeBets;
     private HashMap<Integer, Integer> fieldBets;
     private HashMap<String,Integer> passDontPassOddsBets;
@@ -28,6 +30,8 @@ public class Craps extends Game {
         this.bet = 0;
         this.diceValue = 0;
         this.scanner = new Scanner(System.in);
+        this.comePoints = new HashMap<>();
+        this.dontComePoints = new HashMap<>();
         this.lineComeBets = new HashMap<>();
         this.fieldBets = new HashMap<>();
         this.placeBets = new HashMap<>();
@@ -71,15 +75,15 @@ public class Craps extends Game {
         StringBuilder builder = new StringBuilder();
         if(diceValue==2 || diceValue == 3){
             builder.append(". You crapped out. Pass Line bets lose and Don't Pass Line bets win.\n")
-                    .append(passComeFieldResult("pass",false))
-                    .append(passComeFieldResult("don't pass", true));
+                    .append(passComeResult("pass",false))
+                    .append(passComeResult("don't pass", true));
         } else if(diceValue == 7 || diceValue == 11){
             builder.append(". You rolled a natural! Pass Line bets win and Don't Pass loses.\n")
-                    .append(passComeFieldResult("pass",true))
-                    .append(passComeFieldResult("don't pass", false));
+                    .append(passComeResult("pass",true))
+                    .append(passComeResult("don't pass", false));
         } else if(diceValue == 12) {
             builder.append(". Pass Line looses and Don't Pass bets are pushed to next round.\n")
-                    .append(passComeFieldResult("pass",false));
+                    .append(passComeResult("pass",false));
         } else {
             builder.append(". The point is now ")
                     .append(diceValue);
@@ -111,7 +115,7 @@ public class Craps extends Game {
             getBetAmount();
             makePhaseTwoBet(betType);
             rollDice();
-
+            phaseTwoRollResults();
         }
     }
 
@@ -194,17 +198,71 @@ public class Craps extends Game {
         fieldBets.put(answer,bet);
     }
 
+
+    //incomplete
     public void phaseTwoRollResults(){
+        phaseTwoPassDontPassResult();
+        if(lineComeBets.containsKey("come")){
+            comeBetResult();
+        }
+        if(lineComeBets.containsKey("don't come")){
+            dontComeBetResult();
+        }
 
     }
 
-    public String passComeFieldResult(String betType, boolean winLose){
+
+    public void phaseTwoPassDontPassResult(){
+        StringBuilder builder = new StringBuilder();
+        if(point == diceValue){
+            builder.append("You rolled the point!")
+                    .append(passComeResult("pass",true))
+                    .append(passComeResult("don't pass", false));
+        } else if (diceValue == 7){
+            builder.append("You rolled a 7! ")
+                    .append(passComeResult("pass",false))
+                    .append(passComeResult("don't pass", true));
+        }
+        System.out.println(builder.toString());
+    }
+
+    public void comeBetResult(){
+        String result = "";
+        if(diceValue == 7 || diceValue == 11){
+            result = passComeResult("come",true);
+        } else if (diceValue == 2 || diceValue == 3 || diceValue == 12){
+            result = passComeResult("come",false);
+        } else {
+            result = "Your come bet is now a point";
+            comePoints.put(diceValue,lineComeBets.get("come"));
+        }
+        System.out.println(result);
+    }
+
+    public void dontComeBetResult(){
+        String result = "";
+        if(diceValue == 7 || diceValue == 11) {
+            result = passComeResult("don't come", false);
+        } else if (diceValue == 2 || diceValue == 3){
+            result = passComeResult("don't come", true);
+        } else if (diceValue == 12){
+            result = "Your don't come bet is a push.  You neither win nor lose.";
+            player.addChips(lineComeBets.get("don't come"));
+        } else {
+            result = "Your don't come bet is now a point.";
+            dontComePoints.put(diceValue,lineComeBets.get("don't come"));
+        }
+        System.out.println(result);
+    }
+
+
+    public String passComeResult(String betType, boolean winLose){
         String result = "";
         int lCFBet = lineComeBets.get(betType);
         if(winLose && lCFBet!=0){
             result =  "You won " + lCFBet + " chips on your " + betType + " bet.\n";
             player.addChips(lCFBet*2);
-        } else if (!winLose && lCFBet!=0){
+        } else if (winLose == false && lCFBet!=0){
             result = "You lost " + lCFBet + " chips on your " + betType + " bet.\n";
         }
         return result;
