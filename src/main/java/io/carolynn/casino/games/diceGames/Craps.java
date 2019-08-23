@@ -1,12 +1,13 @@
 package io.carolynn.casino.games.diceGames;
 
+import io.carolynn.casino.GamblingInterface;
 import io.carolynn.casino.Person;
 import io.carolynn.casino.dice.DiceManager;
 import io.carolynn.casino.games.Game;
 
 import java.util.*;
 
-public class Craps extends Game {
+public class Craps extends Game implements GamblingInterface {
 
     private DiceManager diceManager;
     private int point;
@@ -69,6 +70,14 @@ public class Craps extends Game {
         System.out.println(diceManager.toStringPictures() + "Total value: " + diceValue);
     }
 
+
+
+    public void makeBet(){ }
+
+    public void makeBet(int betAmnt){
+        player.removeChips(betAmnt);
+    }
+
     public void comeOutRoll(){
         System.out.println("Make your first roll!\n");
         rollDice();
@@ -103,6 +112,7 @@ public class Craps extends Game {
             }
             if(answer.equals("pass") || answer.equals("don't pass")){
                 lineComeBets.put(answer,bet);
+                makeBet(bet);
             } else {
                 System.out.println("Invalid Input");
             }
@@ -124,12 +134,12 @@ public class Craps extends Game {
             System.out.println("How many chips would you like to bet?");
             bet = scanner.nextInt();
             scanner.nextLine();
-            if (bet > player.getChips()) {
-                System.out.println("Insufficient funds. You have " + player.getChips() + " chips.");
+            if (bet > checkChips()) {
+                System.out.println("Insufficient funds. You have " + checkChips() + " chips.");
             } else if (bet < 5) {
                 System.out.println("Your bet amount is too low. Minimum bet is 5.");
             }
-        } while(bet > player.getChips() || bet < 5);
+        } while(bet > checkChips() || bet < 5);
 
     }
 
@@ -172,6 +182,7 @@ public class Craps extends Game {
         HashMap<Integer, Integer> map = new HashMap<>();
         map.put(point, bet);
         placeBets.put(oddsType,map);
+        makeBet(bet);
     }
 
 
@@ -185,6 +196,7 @@ public class Craps extends Game {
         int answer = scanner.nextInt();
         scanner.nextLine();
         map.put(answer,bet);
+        makeBet(bet);
         return map;
     }
 
@@ -195,6 +207,7 @@ public class Craps extends Game {
             answer = scanner.nextInt();
             scanner.nextLine();
         }
+        makeBet(bet);
         fieldBets.put(answer,bet);
     }
 
@@ -270,12 +283,17 @@ public class Craps extends Game {
 
 
     public boolean insufficientFunds(){
-        if(player.getChips()<=5){
+        if(checkChips()<=5){
             System.out.println("You have insufficient funds.  Returning to main menu.");
             return false;
         } else {
             return true;
         }
+    }
+
+    @Override
+    public int checkChips() {
+        return player.getChips();
     }
 
     public boolean keepPlaying(){

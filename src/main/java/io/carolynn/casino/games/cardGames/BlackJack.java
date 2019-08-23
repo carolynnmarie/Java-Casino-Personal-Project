@@ -1,12 +1,11 @@
 package io.carolynn.casino.games.cardGames;
 
+import io.carolynn.casino.GamblingInterface;
 import io.carolynn.casino.Person;
-import io.carolynn.casino.cards.Card;
-import io.carolynn.casino.cards.Deck;
-
+import io.carolynn.casino.cards.*;
 import java.util.Scanner;
 
-public class BlackJack extends CardGame {
+public class BlackJack extends CardGame implements GamblingInterface {
 
     private int bet;
 
@@ -24,7 +23,7 @@ public class BlackJack extends CardGame {
     @Override
     public void start() {
         System.out.println("Welcome to BlackJack, " + getPlayerName() + ".");
-        if(player.getChips()>=5){
+        if(checkChips()>=5){
             makeBet();
             runGame();
         } else {
@@ -32,21 +31,21 @@ public class BlackJack extends CardGame {
         }
     }
 
-    private void makeBet(){
+    public void makeBet(){
         Scanner input = new Scanner(System.in);
         int chips;
         do {
-            System.out.println(" Your current chip total is " + player.getChips()
+            System.out.println(" Your current chip total is " + checkChips()
                     + ". Please enter the number of chips you would like to bet");
             chips = input.nextInt();
             input.nextLine();
-            if (chips <= player.getChips()) {
+            if (chips <= checkChips()) {
                 setBet(chips);
                 player.removeChips(getBet());
             } else {
-                System.out.println("Insufficient funds. Please enter an amount less than " + player.getChips());
+                System.out.println("Insufficient funds. Please enter an amount less than " + checkChips());
             }
-        } while (chips > player.getChips());
+        } while (chips > checkChips());
     }
 
     @Override
@@ -164,12 +163,16 @@ public class BlackJack extends CardGame {
         return (int)Math.round(getBet() * .5);
     }
 
+    public int checkChips(){
+        return player.getChips();
+    }
+
     @Override
     public void end() {
         houseDeck = new Deck();
         setBet(0);
         Scanner input = new Scanner(System.in);
-        System.out.println("Your currently have " + getPlayer().getChips() + " chips. Would you like to play another round " +
+        System.out.println("Your currently have " + checkChips() + " chips. Would you like to play another round " +
                 "of Blackjack? Type y to play again, or press other key to exit the game");
         String answer = input.nextLine();
         if(answer.equalsIgnoreCase("y")) {
