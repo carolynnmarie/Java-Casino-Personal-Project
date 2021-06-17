@@ -1,6 +1,6 @@
 package io.carolynn.casino.games.cardGames;
 
-import io.carolynn.casino.GamblingInterface;
+import io.carolynn.casino.games.GamblingInterface;
 import io.carolynn.casino.Person;
 import io.carolynn.casino.cards.*;
 import java.util.Scanner;
@@ -20,6 +20,7 @@ public class BlackJack extends CardGame implements GamblingInterface {
     public int getBet(){
         return bet;
     }
+
     @Override
     public void start() {
         System.out.println("Welcome to BlackJack, " + getPlayerName() + ".");

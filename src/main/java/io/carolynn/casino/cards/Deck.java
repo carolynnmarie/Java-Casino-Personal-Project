@@ -1,7 +1,6 @@
 package io.carolynn.casino.cards;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Deck {
 
@@ -79,7 +78,7 @@ public class Deck {
         return deck.size();
     }
 
-    public ArrayList<Card> removeCards(ArrayList<Card> cards){
+    public ArrayList<Card> removeCards(List<Card> cards){
         ArrayList<Card> list = new ArrayList<>();
         for(Card card: deck){
             for(Card hand: cards){

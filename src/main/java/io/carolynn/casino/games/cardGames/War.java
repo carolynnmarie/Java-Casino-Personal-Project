@@ -43,7 +43,7 @@ public class War extends CardGame {
         String answer = "";
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to WAR!\nEnter\"exit\" at any time to exit the game.\nPress enter to flip your card");
-        dealCards();
+        dealHands();
         do {
             answer = scan.nextLine();
             if(!answer.equals("exit")) {
@@ -53,7 +53,7 @@ public class War extends CardGame {
         end();
     }
 
-    public void dealCards(){
+    public void dealHands(){
         playerHand = dealCards(26);
         dealerHand = getHouseDeck();
     }

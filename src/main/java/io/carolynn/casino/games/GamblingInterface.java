@@ -1,4 +1,4 @@
-package io.carolynn.casino;
+package io.carolynn.casino.games;
 
 public interface GamblingInterface {
 

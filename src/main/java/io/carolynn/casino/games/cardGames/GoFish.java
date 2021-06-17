@@ -173,8 +173,7 @@ public class GoFish extends CardGame {
             System.out.println("Dealer now has 4 " + cardValue + "s! Dealer scored a book!");
             setDealerBook(dealerBook + 1);
             List<Card> book = dealerHand.getDeck().stream().filter(card -> card.getRank() == cardValue).collect(Collectors.toList());
-            ArrayList list = new ArrayList(book);
-            dealerHand.removeCards(list);
+            dealerHand.removeCards(book);
         }
     }
 
@@ -191,7 +190,12 @@ public class GoFish extends CardGame {
 
 
     private boolean bookCountCheck(int cardValue, Deck hand){
-        int count = hand.getDeckSize();
+        int count = 0;
+        for(Card card: hand.getDeck()){
+            if(card.getRank() == cardValue){
+                count++;
+            }
+        }
         if(count == 4) return true;
         return false;
     }

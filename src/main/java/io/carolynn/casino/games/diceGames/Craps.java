@@ -1,6 +1,6 @@
 package io.carolynn.casino.games.diceGames;
 
-import io.carolynn.casino.GamblingInterface;
+import io.carolynn.casino.games.GamblingInterface;
 import io.carolynn.casino.Person;
 import io.carolynn.casino.dice.DiceManager;
 import io.carolynn.casino.games.Game;
@@ -72,7 +72,13 @@ public class Craps extends Game implements GamblingInterface {
 
 
 
-    public void makeBet(){ }
+    public void makeBet(){
+        int betAmnt = 0;
+        Scanner scan = new Scanner(System.in);
+        System.out.println("How much would you like to bet?");
+        betAmnt = scan.nextInt();
+        player.removeChips(betAmnt);
+    }
 
     public void makeBet(int betAmnt){
         player.removeChips(betAmnt);

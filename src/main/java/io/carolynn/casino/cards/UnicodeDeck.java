@@ -79,3 +79,47 @@ public class UnicodeDeck {
     }
 
 }
+/*
+
+    public void addCards(ArrayList<Card> cards){
+        deck.addAll(cards);
+    }
+
+    public String seeFullDeck(){
+        ArrayList<Card> deck2 = getDeck();
+        String deckString = "";
+        for(Card card: deck2){
+            deckString+= card.toString();
+        }
+        return deckString;
+    }
+
+    public ArrayList<Card> removeCards(List<Card> cards){
+        ArrayList<Card> list = new ArrayList<>();
+        for(Card card: deck){
+            for(Card hand: cards){
+                if(card.getSuitWord().equals(hand.getSuitWord()) && card.getRank().equals(hand.getRank())){
+                    list.add(card);
+                }
+            }
+        }
+        deck.removeAll(list);
+        return deck;
+    }
+
+    public Card removeCard(int index){
+        return deck.remove(index);
+    }
+
+
+    @Override
+    public String toString(){
+        StringBuilder x = new StringBuilder();
+        for(Card card: deck){
+            x.append(card.toString()).append(" ");
+        }
+        String cardString = x.toString();
+        return cardString.trim();
+
+    }
+ */
