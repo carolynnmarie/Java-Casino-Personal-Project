@@ -1,6 +1,5 @@
 package io.carolynn.casino.cards;
 
-import java.util.ArrayList;
 
 public enum UnicodeCard {
     ACE_OF_SPADES("Ace of Spades", 1, "\uD83C\uDCA1"), TWO_OF_SPADES("Two of Spades", 2, "\uD83C\uDCA2"),
@@ -57,6 +56,12 @@ public enum UnicodeCard {
     public String getUnicodePicture() {
         return unicodePicture;
     }
+
+    @Override
+    public String toString() {
+        return unicodePicture + " " + name;
+    }
+
 
 }
 

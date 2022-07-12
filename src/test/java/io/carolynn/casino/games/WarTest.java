@@ -27,38 +27,38 @@ public class WarTest {
     Card card10 = new Card(Rank.KING, Suit.CLUBS);
 
 
-    @Test
-    public void testRunGame(){
-        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1,card2,card3,card4,card5));
-        ArrayList<Card> dealerHand = new ArrayList<>(Arrays.asList(card6,card7,card8,card9,card10));
-        war.setDealerHand(dealerHand);
-        war.setPlayerHand(playerHand);
-        war.runGame();
-        String actual = war.getDealerHand().toString();
-        String expected = new ArrayList<>(Arrays.asList(card7,card8,card9,card10,card1,card6)).toString();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testIDeclareWar(){
-        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card2,card3,card4,card5));
-        ArrayList<Card> dealerHand = new ArrayList<>(Arrays.asList(card7,card8,card9,card10));
-        war.setPlayerHand(playerHand);
-        war.setDealerHand(dealerHand);
-        war.iDeclareWar();
-        int expected = 1;
-        int actual = war.getPlayerHand().size();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testCheckIfEitherAreEmpty(){
-        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1,card2,card3,card4,card5));
-        ArrayList<Card> dealerHand = new ArrayList<>();
-        war.setPlayerHand(playerHand);
-        war.setDealerHand(dealerHand);
-        Assert.assertTrue(war.checkIfEitherAreEmpty());
-    }
+//    @Test
+//    public void testRunGame(){
+//        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1,card2,card3,card4,card5));
+//        ArrayList<Card> dealerHand = new ArrayList<>(Arrays.asList(card6,card7,card8,card9,card10));
+//        war.setDealerHand(dealerHand);
+//        war.setPlayerHand(playerHand);
+//        war.runGame();
+//        String actual = war.getDealerHand().toString();
+//        String expected = new ArrayList<>(Arrays.asList(card7,card8,card9,card10,card1,card6)).toString();
+//        Assert.assertEquals(expected, actual);
+//    }
+//
+//    @Test
+//    public void testIDeclareWar(){
+//        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card2,card3,card4,card5));
+//        ArrayList<Card> dealerHand = new ArrayList<>(Arrays.asList(card7,card8,card9,card10));
+//        war.setPlayerHand(playerHand);
+//        war.setDealerHand(dealerHand);
+//        war.iDeclareWar();
+//        int expected = 1;
+//        int actual = war.getPlayerHand().size();
+//        Assert.assertEquals(expected, actual);
+//    }
+//
+//    @Test
+//    public void testCheckIfEitherAreEmpty(){
+//        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1,card2,card3,card4,card5));
+//        ArrayList<Card> dealerHand = new ArrayList<>();
+//        war.setPlayerHand(playerHand);
+//        war.setDealerHand(dealerHand);
+//        Assert.assertTrue(war.checkIfEitherAreEmpty());
+//    }
 
 //    @Test
 //    public void testDeclareWinner(){

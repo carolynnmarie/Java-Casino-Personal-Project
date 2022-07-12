@@ -1,7 +1,6 @@
 package io.carolynn.casino.cards;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class UnicodeDeck {
 
@@ -19,53 +18,61 @@ public class UnicodeDeck {
         this.deck = deck;
     }
 
-    public ArrayList<UnicodeCard> getDeckUni() {
+    public ArrayList<UnicodeCard> getDeck() {
         return deck;
     }
 
-    public void setDeckUni(ArrayList<UnicodeCard> deck) {
+    public void setDeck(ArrayList<UnicodeCard> deck) {
         this.deck = deck;
     }
 
-    public void addCardUni(UnicodeCard card){
+    public void addCard(UnicodeCard card){
         deck.add(card);
     }
 
-    public UnicodeCard drawCardUni(){
+    public void addCards(ArrayList<UnicodeCard> cards){
+        deck.addAll(cards);
+    }
+
+    public UnicodeCard drawCard(){
         return deck.remove(0);
     }
 
-    public UnicodeCard seeCardUni(int index){
+    public UnicodeCard seeCard(int index){
         return deck.get(index);
     }
 
-    public ArrayList<UnicodeCard> dealHandUni(int numberOfCards){
+    public ArrayList<UnicodeCard> dealCards(int numberOfCards){
         ArrayList<UnicodeCard> cards = new ArrayList<>();
         for(int i = 0; i<numberOfCards; i++){
             cards.add(deck.remove(i));
-            setDeckUni(deck);
+            setDeck(deck);
         }
         return cards;
     }
 
-    public void shuffleDeckUni(){
+    public void shuffleDeck(){
         Collections.shuffle(deck);
     }
 
-    public void clearDeckUni(){
+    public void clearDeck(){
         deck.clear();
     }
 
-    public Integer getDeckSizeUni(){
+    public Integer getDeckSize(){
         return deck.size();
     }
 
-    public boolean matchesUni(UnicodeCard card){
+    public boolean matches(UnicodeCard card){
         if(deck.contains(card)) return true;
         return false;
     }
 
-    public ArrayList<UnicodeCard> removeAllUni(ArrayList<UnicodeCard> cards){
+    public UnicodeCard removeCard(int index){
+        return deck.remove(index);
+    }
+
+    public ArrayList<UnicodeCard> removeCards(ArrayList<UnicodeCard> cards){
         ArrayList<UnicodeCard> list = new ArrayList<>();
         for(UnicodeCard card: deck){
             for(UnicodeCard hand: cards){
@@ -78,48 +85,25 @@ public class UnicodeDeck {
         return deck;
     }
 
-}
-/*
-
-    public void addCards(ArrayList<Card> cards){
-        deck.addAll(cards);
-    }
-
     public String seeFullDeck(){
-        ArrayList<Card> deck2 = getDeck();
-        String deckString = "";
-        for(Card card: deck2){
-            deckString+= card.toString();
+        StringBuilder builder = new StringBuilder();
+        for(UnicodeCard card: deck){
+            builder.append(card.getUnicodePicture())
+                    .append(" ");
         }
-        return deckString;
+        return builder.toString().trim();
     }
-
-    public ArrayList<Card> removeCards(List<Card> cards){
-        ArrayList<Card> list = new ArrayList<>();
-        for(Card card: deck){
-            for(Card hand: cards){
-                if(card.getSuitWord().equals(hand.getSuitWord()) && card.getRank().equals(hand.getRank())){
-                    list.add(card);
-                }
-            }
-        }
-        deck.removeAll(list);
-        return deck;
-    }
-
-    public Card removeCard(int index){
-        return deck.remove(index);
-    }
-
 
     @Override
     public String toString(){
         StringBuilder x = new StringBuilder();
-        for(Card card: deck){
-            x.append(card.toString()).append(" ");
+        for(UnicodeCard card: deck){
+            x.append(card.toString()).append("\n");
         }
         String cardString = x.toString();
         return cardString.trim();
 
     }
- */
+
+
+}

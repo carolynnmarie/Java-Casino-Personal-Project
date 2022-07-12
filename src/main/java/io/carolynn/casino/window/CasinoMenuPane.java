@@ -16,11 +16,12 @@ public class CasinoMenuPane extends JPanel {
     private JButton blackJack;
     private JButton goFish;
     private JButton war;
-    private JButton craps;
+//    private JButton craps;
 
     public CasinoMenuPane(Person player){
         this.player = player;
         setVisible(true);
+        setBackground(Color.PINK);
 
         ActionListener listener = new chooseGame();
 
@@ -31,6 +32,7 @@ public class CasinoMenuPane extends JPanel {
         this.panel = new JPanel();
         panel.setVisible(true);
         panel.setLayout(new GridLayout(7,1));
+        panel.setBackground(Color.PINK);
 
         panel.add(nameLabel);
         panel.add(chipNumber);
@@ -48,9 +50,9 @@ public class CasinoMenuPane extends JPanel {
         war.addActionListener(listener);
         panel.add(war);
 
-        this.craps = new JButton("Craps");
-        craps.addActionListener(listener);
-        panel.add(craps);
+//        this.craps = new JButton("Craps");
+//        craps.addActionListener(listener);
+//        panel.add(craps);
 
         add(panel);
 
@@ -63,7 +65,7 @@ public class CasinoMenuPane extends JPanel {
         public void actionPerformed(ActionEvent e) {
             setVisible(false);
             String gameChoice = e.getActionCommand();
-            while(gameChoice.equals("blackjack")||gameChoice.equals("go fish")||gameChoice.equals("war")) {
+            while(gameChoice.equalsIgnoreCase("blackjack")||gameChoice.equals("go fish")||gameChoice.equals("war")) {
                 Game game = GameFactory.goToGame(gameChoice, player);
                 game.start();
             }

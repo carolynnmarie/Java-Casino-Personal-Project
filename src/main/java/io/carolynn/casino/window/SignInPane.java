@@ -36,7 +36,9 @@ public class SignInPane extends JPanel {
 
         this.panel = new JPanel(new GridBagLayout());
         panel.setBorder(new LineBorder(Color.WHITE));
+        panel.setBackground(Color.PINK);
         panel.add(card1);
+
         GridBagConstraints gBC = new GridBagConstraints();
         gBC.fill = GridBagConstraints.HORIZONTAL;
 
@@ -101,31 +103,4 @@ private class ButtonListener implements ActionListener{
     }
 }
 
-//button.addActionListener(new java.awt.event.ActionListener() {
-//        @Override
-//        public void actionPerformed(java.awt.event.ActionEvent evt) {
-//            String name = JOptionPane.showInputDialog(parent,
-//                    "What is your name?", null);
-//        }
-//    });
-
-//    public void paintComponent(Graphics graphic1){
-//        Graphics2D graphic = (Graphics2D) graphic1;
-//
-//        //format text message
-//        Font appleChancery = new Font("Apple Chancery",Font.PLAIN,24);
-//        graphic.setFont(appleChancery);
-//        String message = "Welcome to the Casino!";
-//
-//        //center text message in window
-//        FontRenderContext context = graphic.getFontRenderContext();
-//        Rectangle2D size = appleChancery.getStringBounds(message,context);
-//        float fromSide =(float) (getWidth()-size.getWidth())/2;
-//        float fromTop = 100;
-//        float accent =(float) -size.getY();
-//        float baseY = fromTop + accent;
-//
-//        //display text message
-//        graphic.drawString(message, fromSide, baseY);
-//    }
 }

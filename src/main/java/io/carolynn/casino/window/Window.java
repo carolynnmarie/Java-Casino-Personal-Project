@@ -5,7 +5,6 @@ import java.awt.*;
 
 public class Window extends JFrame{
 
-    private JPanel panel;
     private Toolkit toolkit;
 
 
@@ -17,7 +16,6 @@ public class Window extends JFrame{
         setVisible(true);
         setLocation(20,20);
         setResizable(true);
-
     }
 
     public void addPanel(JPanel panel) {
@@ -30,7 +28,6 @@ public class Window extends JFrame{
         EventQueue.invokeLater(()-> {
             Window window = new Window();
             window.setTitle("Casino");
-            window.setBackground(Color.WHITE);
             window.addPanel(new SignInPane());
         });
     }

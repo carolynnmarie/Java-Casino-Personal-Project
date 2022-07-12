@@ -41,38 +41,38 @@ public class GoFishTest {
         String actual = goFish.getPlayer().getName();
         Assert.assertEquals(expected, actual);
     }
-
-    @Test
-    public void testPlayerAsks(){
-        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4));
-        ArrayList<Card> dealerHand = new ArrayList<>(Arrays.asList(card5, card6, card7, card8));
-        goFish.setPlayerHand(playerHand);
-        goFish.setDealerHand(dealerHand);
-        int actual = goFish.playerAsks(11);
-        int expected = 1;
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testPlayerGoFish(){
-        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4, card5,card9));
-        goFish.setPlayerHand(playerHand);
-        goFish.getHouseDeck().removeCards(playerHand);
-        int fish = goFish.playerGoFish(13, playerHand);
-        int expected = 7;
-        int actual = goFish.getPlayerHand().size();
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testPlayerBookRemoval(){
-        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4, card5, card9, card10));
-        goFish.setPlayerHand(playerHand);
-        goFish.playerBookRemoval(13);
-        int expected = 3;
-        int actual = goFish.getPlayerHand().size();
-        Assert.assertEquals(expected, actual);
-    }
+//
+//    @Test
+//    public void testPlayerAsks(){
+//        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4));
+//        ArrayList<Card> dealerHand = new ArrayList<>(Arrays.asList(card5, card6, card7, card8));
+//        goFish.setPlayerHand(playerHand);
+//        goFish.setDealerHand(dealerHand);
+//        int actual = goFish.playerAsks(11);
+//        int expected = 1;
+//        Assert.assertEquals(expected, actual);
+//    }
+//
+//    @Test
+//    public void testPlayerGoFish(){
+//        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4, card5,card9));
+//        goFish.setPlayerHand(playerHand);
+//        goFish.getHouseDeck().removeCards(playerHand);
+//        int fish = goFish.playerGoFish(13, playerHand);
+//        int expected = 7;
+//        int actual = goFish.getPlayerHand().size();
+//        Assert.assertEquals(expected, actual);
+//    }
+//
+//    @Test
+//    public void testPlayerBookRemoval(){
+//        ArrayList<Card> playerHand = new ArrayList<>(Arrays.asList(card1, card2, card3, card4, card5, card9, card10));
+//        goFish.setPlayerHand(playerHand);
+//        goFish.playerBookRemoval(13);
+//        int expected = 3;
+//        int actual = goFish.getPlayerHand().size();
+//        Assert.assertEquals(expected, actual);
+//    }
 
     @Test
     public void testDealerAsks(){

@@ -12,6 +12,8 @@ public class War extends CardGame {
     private Deck playerHand;
     private Deck dealerHand;
     private ArrayList<Card> tableCards;
+    private ArrayList<Card> playerDiscard;
+    private ArrayList<Card> dealerDiscard;
 
 
     public War(Person player){
@@ -19,6 +21,8 @@ public class War extends CardGame {
         this.playerHand = new Deck();
         this.dealerHand = new Deck();
         this.tableCards = new ArrayList<>();
+        this.playerDiscard = new ArrayList<>();
+        this.dealerDiscard = new ArrayList<>();
     }
 
     public void setPlayerHand(Deck playerHand){
