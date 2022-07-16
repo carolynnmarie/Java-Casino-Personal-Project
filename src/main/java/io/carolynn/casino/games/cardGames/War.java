@@ -1,45 +1,30 @@
 package io.carolynn.casino.games.cardGames;
 
 import io.carolynn.casino.Person;
-import io.carolynn.casino.cards.Card;
-import io.carolynn.casino.cards.Deck;
+import io.carolynn.casino.cards.UnicodeCard;
+import io.carolynn.casino.cards.UnicodeDeck;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class War extends CardGame {
 
-    private Deck playerHand;
-    private Deck dealerHand;
-    private ArrayList<Card> tableCards;
-    private ArrayList<Card> playerDiscard;
-    private ArrayList<Card> dealerDiscard;
+    private UnicodeDeck playerHand;
+    private UnicodeDeck dealerHand;
+    private ArrayList<UnicodeCard> tableCards;
+    private ArrayList<UnicodeCard> playerDiscard;
+    private ArrayList<UnicodeCard> dealerDiscard;
+    private UnicodeDeck houseDeck;
 
 
     public War(Person player){
         super(player);
-        this.playerHand = new Deck();
-        this.dealerHand = new Deck();
+        this.playerHand = new UnicodeDeck();
+        this.dealerHand = new UnicodeDeck();
         this.tableCards = new ArrayList<>();
         this.playerDiscard = new ArrayList<>();
         this.dealerDiscard = new ArrayList<>();
-    }
-
-    public void setPlayerHand(Deck playerHand){
-        this.playerHand = playerHand;
-    }
-
-    public Deck getPlayerHand() {
-        return playerHand;
-    }
-
-    public Deck getDealerHand() {
-        return dealerHand;
-    }
-
-    public void setDealerHand(Deck dealerHand){
-        this.dealerHand = dealerHand;
-
+        this.houseDeck = new UnicodeDeck();
     }
 
     @Override
@@ -58,21 +43,21 @@ public class War extends CardGame {
     }
 
     public void dealHands(){
-        playerHand = dealCards(26);
-        dealerHand = getHouseDeck();
+        playerHand.setDeck(houseDeck.dealCards(26));
+        dealerHand.setDeck(houseDeck.getDeck());
     }
 
     public void runGame() {
-        Card playerCard = playerHand.removeCard(0);
-        Card dealerCard = dealerHand.removeCard(0);
+        UnicodeCard playerCard = playerHand.removeCard(0);
+        UnicodeCard dealerCard = dealerHand.removeCard(0);
         tableCards.add(playerCard);
         tableCards.add(dealerCard);
         System.out.println("Your card: " + playerCard.toString() + "  Dealer's card: " + dealerCard.toString());
-        if (playerCard.getRank() > dealerCard.getRank()) {
+        if (playerCard.getValue() > dealerCard.getValue()) {
             playerHand.addCards(tableCards);
             System.out.println("You won the round!\nYou have " + playerHand.getDeckSize() + " cards, dealer has "
                     + dealerHand.getDeckSize()+ " cards.");
-        } else if (playerCard.getRank() < dealerCard.getRank()) {
+        } else if (playerCard.getValue() < dealerCard.getValue()) {
             dealerHand.addCards(tableCards);
             System.out.println("Dealer won the round!\nYou have " + playerHand.getDeckSize() + " cards, dealer has "
                     + dealerHand.getDeckSize()+ " cards.");
@@ -88,8 +73,8 @@ public class War extends CardGame {
 
 
     public void iDeclareWar(){
-        Card topDealerCard;
-        Card topPlayerCard;
+        UnicodeCard topDealerCard;
+        UnicodeCard topPlayerCard;
         do{
             int numOfCards = (playerHand.getDeckSize() >= 3 && dealerHand.getDeckSize() >= 3) ? 3 :
                     (dealerHand.getDeckSize() < playerHand.getDeckSize())? dealerHand.getDeckSize(): playerHand.getDeckSize();
@@ -100,17 +85,32 @@ public class War extends CardGame {
                 tableCards.add(playerHand.removeCard(0));
                 tableCards.add(dealerHand.removeCard(0));
             }
-            if (topDealerCard.getRank() > topPlayerCard.getRank()) {
-                System.out.println("Dealer won!");
+            String winnings = printWarWinnings(tableCards);
+            if (topDealerCard.getValue() > topPlayerCard.getValue()) {
+                System.out.println("Dealer won!  Dealer won the following cards: " + winnings);
                 dealerHand.addCards(tableCards);
-            } else if (topDealerCard.getRank() < topPlayerCard.getRank()) {
-                System.out.println("You won!");
+            } else if (topDealerCard.getValue() < topPlayerCard.getValue()) {
+                System.out.println("You won! You won the following cards: " + winnings);
                 playerHand.addCards(tableCards);
             } else {
                 System.out.println("It's a tie, I Declare War again!");
             }
-        } while (topDealerCard.getRank() == topPlayerCard.getRank() && !checkIfEitherAreEmpty());
+        } while (topDealerCard.getValue() == topPlayerCard.getValue() && !checkIfEitherAreEmpty());
     }
+
+    private String printWarWinnings(ArrayList<UnicodeCard> cards){
+        StringBuilder builder = new StringBuilder();
+        for(UnicodeCard card: cards){
+            builder.append(card.toString());
+        }
+        return builder.toString();
+    }
+//
+//    public int checkQuantityOfRank(int rank){
+//
+//    }
+
+
 
 
     public boolean checkIfEitherAreEmpty(){
