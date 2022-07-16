@@ -101,9 +101,9 @@ public class War extends CardGame {
     private String printWarWinnings(ArrayList<UnicodeCard> cards){
         StringBuilder builder = new StringBuilder();
         for(UnicodeCard card: cards){
-            builder.append(card.toString());
+            builder.append(card.toString()).append(" ");
         }
-        return builder.toString();
+        return builder.toString().trim();
     }
 //
 //    public int checkQuantityOfRank(int rank){

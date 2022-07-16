@@ -95,6 +95,10 @@ public class Deck {
         return deck.remove(index);
     }
 
+    public void sortCards(){
+        Collections.sort(deck, Comparator.comparing(Card::getRank));
+    }
+
 
     @Override
     public String toString(){
@@ -102,8 +106,7 @@ public class Deck {
         for(Card card: deck){
             x.append(card.toString()).append(" ");
         }
-        String cardString = x.toString();
-        return cardString.trim();
+        return x.toString().trim();
 
     }
 

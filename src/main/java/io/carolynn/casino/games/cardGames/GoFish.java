@@ -76,7 +76,7 @@ public class GoFish extends CardGame {
                 answer = "Dealer has " + hasCard + " " + choice + "s.";
                 swapCards(choice,dealerHand,playerHand);
             } else {
-                answer = "Dealer has no " + choice + "s. Go Fish!";
+                System.out.println("Dealer has no " + choice + "s. Go Fish!");
                 hasCard = playerGoFish(choice, playerHand);
             }
             System.out.println(answer);
@@ -87,6 +87,7 @@ public class GoFish extends CardGame {
     public int playerCardChoice(){
         Scanner scanner = new Scanner(System.in);
         Integer numberValue = 0;
+        playerHand.sortCards();
         do {
             System.out.println("Your turn! Your hand is: " + playerHand.toString() + "\nWhat card value do you want to " +
                     "request from the dealer?");
@@ -107,7 +108,7 @@ public class GoFish extends CardGame {
             wish = 1;
             builder.append("You fished your wish! You get to take another turn");
         } else {
-            builder.append("You didn't fish your wish.");
+            builder.append(".  You didn't fish your wish.");
             wish = 0;
         }
         System.out.println(builder.toString());
@@ -132,15 +133,17 @@ public class GoFish extends CardGame {
             Collections.shuffle(dealerHand.getDeck());
             int dealerCard = dealerHand.getDeck().get(0).getRank();
             cards = doYouHaveCard(dealerCard, playerHand);
+            System.out.println("Dealer wants to know if you have any " + dealerCard + "s");
             if(cards >= 1){
-                wish = "Dealer takes your " + dealerCard + "s.";
+                wish = "You do! Dealer takes your " + dealerCard + "s.";
                 swapCards(dealerCard,playerHand,dealerHand);
             } else {
-                wish = "Dealer has to Go Fish!\n";
+                System.out.println("You do not! Dealer has to Go Fish!");
                 cards = dealerGoFish(dealerCard,dealerHand);
             }
             System.out.println(wish);
             dealerBookRemoval(dealerCard);
+            wish = "";
         }while(cards != 0 && cardCountCheck());
     }
 
@@ -214,9 +217,9 @@ public class GoFish extends CardGame {
     }
 
     public void end() {
-        Scanner anotherRoundScanner = new Scanner(System.in);
+        Scanner anotherRound = new Scanner(System.in);
         System.out.println("Play another round? Type y for yes, press any other key to return to menu");
-        if (anotherRoundScanner.nextLine().equalsIgnoreCase("y")) {
+        if (anotherRound.nextLine().equalsIgnoreCase("y")) {
             start();
         } else {
             System.out.println("Thanks for playing!");
@@ -224,7 +227,7 @@ public class GoFish extends CardGame {
     }
 
     public static void main(String[] args) {
-        Person person = new Person("Luis");
+        Person person = new Person("Carolynn");
         GoFish game = new GoFish(person);
         game.start();
     }

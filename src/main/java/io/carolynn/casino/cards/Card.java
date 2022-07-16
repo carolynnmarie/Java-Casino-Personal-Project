@@ -36,9 +36,14 @@ public class Card {
         return rank.rankValue();
     }
 
+    public String getConvertedRank(){
+        return (getRank()==13)?"K":(getRank()==12)?"Q":(getRank()==11)?"J":(getRank()==1)?"A":getRank().toString();
+    }
+
     @Override
     public String toString(){
-        return getRank() + getSuitSymbol();
+        String convertedRank = (getRank()==13)?"K":(getRank()==12)?"Q":(getRank()==11)?"J":(getRank()==1)?"A":getRank().toString();
+        return convertedRank + getSuitSymbol();
     }
 
     @Override

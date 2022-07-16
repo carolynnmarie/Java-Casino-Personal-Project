@@ -38,7 +38,7 @@ public enum Rank {
 
     public static int inputValueConversion(String x){
         x = x.toLowerCase();
-        return (x.equals("one") || x.equals("1") || x.equals("ace"))? 1:
+        return (x.equals("one") || x.equals("1") || x.equals("ace") || x.equals("a"))? 1:
                 (x.equals("two") || x.equals("2"))? 2:
                  (x.equals("three")||x.equals("3"))? 3:
                   (x.equals("four")||x.equals("4"))? 4:
@@ -48,8 +48,8 @@ public enum Rank {
                       (x.equals("eight")||x.equals("8"))? 8:
                        (x.equals("nine")||x.equals("9"))? 9:
                         (x.equals("ten")||x.equals("10"))? 10:
-                         (x.equals("eleven")||x.equals("11")|| x.equals("jack"))?11:
-                          (x.equals("twelve")||x.equals("12")|| x.equals("queen"))?12:
-                           (x.equals("thirteen")||x.equals("13")|| x.equals("king"))?13: 0;
+                         (x.equals("eleven")||x.equals("11")|| x.equals("jack") || x.equals("j"))?11:
+                          (x.equals("twelve")||x.equals("12")|| x.equals("queen") || x.equals("q"))?12:
+                           (x.equals("thirteen")||x.equals("13")|| x.equals("king") || x.equals("k"))?13: 0;
     }
 }
